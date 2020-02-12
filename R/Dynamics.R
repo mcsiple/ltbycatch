@@ -1,23 +1,23 @@
+#' Generate one marine mammal population trajectory
+#'
+#' @description Generates one trajectory for a marine mammal population, starting at InitDepl
+#' @param S0 calf survival rate
+#' @param S1plus survival rate for animals 1 and older
+#' @param K1plus pre-exploitation population size (1+ component of pop)
+#' @param AgeMat age at maturity
+#' @param InitDepl starting depletion level
+#' @param ConstantCatch vector(length=nyears) total bycatch each year
+#' @param ConstantF vector(length=nyears) rate of bycatch each year
+#' @param z compensation (2.39 for bowheads, set as default for others)
+#' @param nyears number of years to simulate
+#' @param nages "max" age, treated as plus group
+#' @param lambdaMax max intrinsic growth rate
+#' @return a list containing one matrix N and one vector TotalPop
+#'  N has dimensions nyears (rows) x nages (columns) and contains the number of individuals at each age. TotalPop, a vector of length nyears, contains all the 1+ individuals in the population.
+
+# Note, nages = PlusGroupAge, and PlusGroupAge can = AgeMat+2 without losing accuracy (per AEP 11/30/18)
+
 Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, ConstantF=NA, z, nyears, nages, lambdaMax){
-  #' @description Generates one trajectory for a marine mammal population, starting at InitDepl
-  #' @param S0 calf survival rate
-  #' @param S1plus survival rate for animals 1 and older
-  #' @param K1plus pre-exploitation population size (1+ component of pop)
-  #' @param AgeMat age at maturity
-  #' @param InitDepl starting depletion level
-  #' @param ConstantCatch vector(length=nyears) total bycatch each year
-  #' @param ConstantF vector(length=nyears) rate of bycatch each year
-  #' @param z compensation (2.39 for bowheads, set as default for others)
-  #' @param nyears number of years to simulate
-  #' @param nages "max" age, treated as plus group
-  #' @param lambdaMax max intrinsic growth rate
-  #' @return a list of:
-  #'  one matrix N and
-  #'  one vector TotalPop
-  #'  N has dimensions nyears (rows) x nages (columns) and contains the number of individuals at each age. TotalPop, a vector of length nyears, contains all the 1+ individuals in the population.
-
-  # Note, nages = PlusGroupAge, and PlusGroupAge can = AgeMat+2 without losing accuracy (per AEP 11/30/18)
-
   # Checks
   if(length(ConstantCatch)>1 & length(ConstantF)>1){stop("Cannot have both constant F and constant catch- choose one and set the other to NA!")}
 
