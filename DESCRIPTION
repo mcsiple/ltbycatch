@@ -6,7 +6,11 @@ Author: Margaret Siple, André Punt, Tessa Francis, and members of the Ocean Mod
 Maintainer: Margaret Siple <siplem@uw.edu>
 Description: This package contains some of the basic functionality of the BALEEN II model. Projections are made with an age-structured population dynamics model that responds to bycatch in individuals aged 1+. This package includes all the functions used in the Marine Mammal Bycatch Impacts Evaluation Tool (MMBIET), which is a product of the Ocean Modeling Forum's Marine Mammal Bycatch Working Group. It also includes functions for calculating Potential Biological Removal based on uncertainty and marine mammal life history.
     This package is not intended to be used as a prescriptive way to evaluate bycatch for any specific marine mammal stock. It is intended to be used for scenario exploration.
-License: What license is it under?
+Imports:
+    graphics,
+    stats,
+    popbio
+License: CC0
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
