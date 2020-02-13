@@ -15,8 +15,6 @@ getFecmax2(S0, lambdaMax, S1plus, AgeMat)
 \item{S1plus}{Survival of age 1+ individuals (num)}
 
 \item{AgeMat}{Age at maturity (num)}
-
-\item{f}{'fishing' rate == bycatch rate (num)}
 }
 \value{
 A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)

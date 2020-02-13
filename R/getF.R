@@ -6,6 +6,7 @@
 #' @param S1plus.w Adult survival (num)
 #' @param K1plus.w Adult carrying capacity (num)
 #' @param AgeMat.w Age at maturity (generally AFP+1) (num)
+#' @param nages.w Number of ages (num)
 #' @param InitDepl.w Depletion level to solve for (num)
 #' @param z.w degree of compensation (num)
 #' @param lambdaMax.w max intrinsic growth rate (num)

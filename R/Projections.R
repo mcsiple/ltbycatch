@@ -12,6 +12,7 @@
 #' @return list of outputs from simulations: 'trajectories' matrix has simulations
 #' other params are the same as in the Dynamics() function
 #'
+#' @export
 Projections <- function(NOut,
                         ConstantBycatch = list(Catch=NA,CV=NA),
                         ConstantRateBycatch = list(Rate=NA,CV=NA), # need to generate values from popbio{}

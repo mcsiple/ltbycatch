@@ -5,7 +5,6 @@
 #' @param lambdaMax Maximum population growth rate (num)
 #' @param S1plus Survival of age 1+ individuals (num)
 #' @param AgeMat Age at maturity (num)
-#' @param f 'fishing' rate == bycatch rate (num)
 #' @return A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
 #'
 #' @export

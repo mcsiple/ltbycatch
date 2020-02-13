@@ -24,6 +24,8 @@ getF(
 
 \item{S1plus.w}{Adult survival (num)}
 
+\item{nages.w}{Number of ages (num)}
+
 \item{K1plus.w}{Adult carrying capacity (num)}
 
 \item{AgeMat.w}{Age at maturity (generally AFP+1) (num)}
