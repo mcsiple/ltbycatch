@@ -32,7 +32,7 @@ install_github("mcsiple/ltbycatch")
 ## How to access the mmBIET Shiny app
 The functions in this package can also be accessed through the Shiny app for this project, which is located online [here](https://msiple.shinyapps.io/mammaltool/). The app provides an easy way to explore outcomes. 
 
-![Image of Simple Projections](https://github.com/mcsiple/ltbycatch/blob/master/docs/screenshot1.png)
+![Image of Simple Projections](https://github.com/mcsiple/ltbycatch/blob/master/docs/screenshot1.png | width=100)
 
 ## References
 Punt, A. E. 1999. Annex R: A full description of the standard Baleen II model and some variants thereof. Division of Marine Research, CSIRO Marine Laboratories, Hobart, Australia. Available from https://duwamish.lib.washington.edu/uwnetid/illiad.dll?Action=10&Form=75&Value=1651729 (accessed August 7, 2018).
