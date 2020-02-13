@@ -1,9 +1,9 @@
 # Package ltbycatch
 
 ## Development status
-[![GitHub version](https://badge.fury.io/gh/mcsiple%2Fltbycatch.svg)](https://badge.fury.io/gh/mcsiple%2Fltbycatch)
+<a href="https://badge.fury.io/gh/mcsiple%2Fltbycatch"><img src="https://badge.fury.io/gh/mcsiple%2Fltbycatch.svg" alt="GitHub version" height="18"></a>
 
-##Authors
+## Authors
 Margaret Siple
 André Punt
 
