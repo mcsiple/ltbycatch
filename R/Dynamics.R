@@ -8,7 +8,7 @@
 #' @param InitDepl starting depletion level
 #' @param ConstantCatch vector(length=nyears) total bycatch each year
 #' @param ConstantF vector(length=nyears) rate of bycatch each year
-#' @param z compensation (2.39 for bowheads, set as default for others)
+#' @param z compensation (2.39 for bowhead whaless, set as default for others)
 #' @param nyears number of years to simulate
 #' @param nages "max" age, treated as plus group
 #' @param lambdaMax max intrinsic growth rate

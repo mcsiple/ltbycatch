@@ -7,6 +7,8 @@
 #' @param AgeMat Age at maturity (num)
 #' @param f 'fishing' rate == bycatch rate (num)
 #' @return A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
+#'
+#' @export
 getFecmax2 <- function(S0,lambdaMax,S1plus,AgeMat){
   fmax = (lambdaMax^(AgeMat)-(S1plus*(lambdaMax^(AgeMat-1)))) / (S0*S1plus^(AgeMat-1))
   return(fmax)

@@ -11,6 +11,8 @@
 #' @param lambdaMax.w max intrinsic growth rate (num)
 #' @param unpr.w unfished nums per recruit (num)
 #' @return 'Fishing' (bycatch) rate that results in the depletion level provided (num)
+#'
+#' @export
 getF <- function(f.start, S0.w, S1plus.w, nages.w,K1plus.w, AgeMat.w, InitDepl.w, z.w,lambdaMax.w, unpr.w){
   # Calcs now outside this function: unfished nums per recruit
 

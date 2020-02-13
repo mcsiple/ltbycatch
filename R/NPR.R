@@ -7,13 +7,9 @@
 #' @param AgeMat age at maturity (num)
 #' @param f 'fishing' rate == bycatch rate (num)
 #' @return A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
-#' @examples
-#' NPR(S0=0.944,S1plus=0.99,nages=20,AgeMat=18,f=0.5)
-#' NPR(S0=0.944,S1plus=0.99,nages=20,AgeMat=18,f=0)
 #'
+#' @export
 NPR <- function(S0, S1plus, nages, AgeMat, f=0){
-
-
   AgePart <- AgeMat+1 # Age at first parturition
 
   N.vec <- vector(length = nages+1) # Ages 0 thru nages --> vector 1:(nages+1)
