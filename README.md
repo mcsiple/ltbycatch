@@ -7,18 +7,14 @@ ltbycatch is an R package that generates marine mammal population projections ba
 Margaret Siple  
 André Punt
 
-
-Contents
---------
-
--   [details](#details)
+## Contents
+-   [Details](#details)
 -   [Install](#install)
 -   [Contributing](#contributing)
 -   [References](#references)
 <!-- end toc -->
 
-Details
--------------------------------
+## Details
 This R package contains the functions used in the Marine Mammal Bycatch Impacts Exploration Tool (mmBIET), a Shiny app built by Margaret Siple and André Punt for the Ocean Modeling Forum's [Marine Mammal Bycatch Working Group](https://oceanmodelingforum.org/working-groups/marine-mammal-bycatch-working-group/). The app is available [here](https://msiple.shinyapps.io/mammaltool/). The functions in this package, and the app, are both intended to be used in cases where data on bycatch and/or population status are sparse or unavailable. 
 
 Our target audience is stakeholders interested in projecting marine mammal populations to examine the impacts of bycatch. Those code could also be used as a teaching tool, or for anyone who is more familiar with R than FORTRAN and wants to use some components of the BALEEN II model (Punt 1999). 
