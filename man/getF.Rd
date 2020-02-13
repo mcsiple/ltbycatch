@@ -36,6 +36,9 @@ getF(
 
 \item{unpr.w}{unfished nums per recruit (num)}
 }
+\value{
+'Fishing' (bycatch) rate that results in the depletion level provided (num)
+}
 \description{
 solves for f that gives depletion level InitDepl.w
 }
