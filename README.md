@@ -28,6 +28,7 @@ install_github("mcsiple/ltbycatch")
 
 
 ## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+We would like this package to be sustainable in the long term and welcome contributions. If you encounter a bug, please leave a note on the Issues page. You can also leave comments there about additional functionality. If you are interested in contributing, we direct you to the R package [contribution advice](http://r-pkgs.had.co.nz/git.html) from Hadley Wickham.
 
 ## Accessing the mmBIET Shiny app
 The functions in this package can also be accessed through the Shiny app for this project, which is located online [here](https://msiple.shinyapps.io/mammaltool/). The app provides an easy way to explore outcomes. 
