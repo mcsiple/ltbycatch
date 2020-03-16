@@ -29,7 +29,7 @@ install_github("mcsiple/ltbycatch")
 
 ## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-## How to access the mmBIET Shiny app
+## Accessing the mmBIET Shiny app
 The functions in this package can also be accessed through the Shiny app for this project, which is located online [here](https://msiple.shinyapps.io/mammaltool/). The app provides an easy way to explore outcomes. 
 
 <img src="https://github.com/mcsiple/ltbycatch/blob/master/docs/screenshot1.png" alt="screenshot1" width="400">
