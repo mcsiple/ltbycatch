@@ -1,13 +1,13 @@
 #' Get the value of F that results in a given depletion level
 #'
-#' @description solves for f that gives depletion level InitDepl.w
-#' @param f.start initial guess for F (num)
-#' @param S0.w Calf or pup survival. 'w' suffix indicates that z is in the wrapper fn, and is used inside the fn by optim()  (num)
-#' @param S1plus.w Adult survival (num)
-#' @param K1plus.w Adult carrying capacity (num)
+#' @description This function solves for the bycatch rate F that gives depletion level InitDepl.w.
+#' @param f.start An initial guess for the starting bycatch rate. Default is F = 0.5.
+#' @param S0.w Calf or pup survival, a numeric value between 0 and 1. (Note: 'w' suffix indicates that z is in the wrapper fn, and is used inside the function by optim())
+#' @param S1plus.w Adult survival, a numeric value between 0 and 1
+#' @param K1plus.w Adult carrying capacity. If this value is unavailable, it can be approximated by using the initial depletion and the estimate of current abundance
 #' @param AgeMat.w Age at maturity (generally AFP+1) (num)
-#' @param nages.w Number of ages (num)
-#' @param InitDepl.w Depletion level to solve for (num)
+#' @param nages.w The number of age classes
+#' @param InitDepl.w The depletion level to solve for (this is equivalent to 'starting depletion')
 #' @param z.w degree of compensation (num)
 #' @param lambdaMax.w max intrinsic growth rate (num)
 #' @param unpr.w unfished nums per recruit (num)
