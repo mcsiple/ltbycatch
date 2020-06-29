@@ -6,6 +6,8 @@ ltbycatch is an R package that generates marine mammal population projections ba
 ## Authors
 Margaret Siple  
 André Punt
+Tessa Francis
+The Ocean Modeling Forum Marine Mammal Bycatch Working Group
 
 ## Contents
 -   [Details](#details)
