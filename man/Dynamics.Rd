@@ -5,46 +5,52 @@
 \title{Generate one marine mammal population trajectory}
 \usage{
 Dynamics(
-  S0,
-  S1plus,
-  K1plus,
-  AgeMat,
-  InitDepl,
+  S0 = NA,
+  S1plus = NA,
+  K1plus = NA,
+  AgeMat = NA,
+  InitDepl = NA,
   ConstantCatch = NA,
   ConstantF = NA,
-  z,
-  nyears,
-  nages,
-  lambdaMax
+  z = 2.39,
+  nyears = NA,
+  nages = NA,
+  lambdaMax = NA
 )
 }
 \arguments{
-\item{S0}{calf survival rate}
+\item{S0}{Calf survival rate}
 
-\item{S1plus}{survival rate for animals 1 and older}
+\item{S1plus}{Survival rate for animals 1 and older}
 
-\item{K1plus}{pre-exploitation population size (1+ component of pop)}
+\item{K1plus}{The pre-exploitation population size (1+ component of pop)}
 
-\item{AgeMat}{age at maturity}
+\item{AgeMat}{Age at maturity}
 
-\item{InitDepl}{starting depletion level}
+\item{InitDepl}{Starting depletion level}
 
-\item{ConstantCatch}{vector(length=nyears) total bycatch each year}
+\item{ConstantCatch}{Total bycatch each year, expressed as a vector of length [nyears]}
 
-\item{ConstantF}{vector(length=nyears) rate of bycatch each year}
+\item{ConstantF}{vector (length=nyears) rate of bycatch each year}
 
-\item{z}{compensation (2.39 for bowhead whaless, set as default for others)}
+\item{z}{Degree of compensation (2.39 for bowhead whales, set as default for others)}
 
-\item{nyears}{number of years to simulate}
+\item{nyears}{Number of years to project}
 
-\item{nages}{"max" age, treated as plus group}
+\item{nages}{"Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity + 2 without losing accuracy.}
 
 \item{lambdaMax}{max intrinsic growth rate}
 }
 \value{
-a list containing one matrix N and one vector TotalPop
- N has dimensions nyears (rows) x nages (columns) and contains the number of individuals at each age. TotalPop, a vector of length nyears, contains all the 1+ individuals in the population.
+a list containing a matrix N of numbers at age (dimensions nyears (rows) x nages (columns)) and one vector TotalPop (a vector of length nyears), containing the number of age 1+ individuals in the population.
 }
 \description{
-Generates one trajectory for a marine mammal population, starting at InitDepl
+This function generates one trajectory for a marine mammal population, starting at a user-specified depletion level `InitDepl`.
+}
+\details{
+The population model is a single-sex age-structured model in which the number of calves or pups born each year is density dependent, with the extent of density dependence a function of the number of mature adults \eqn{\tildeN}, the fecundity (pregnancy rate) at pre-exploitation equilibrium \deqn{f_0}, the maximum theoretical fecundity rate fmax, the degree of compensation z, and the abundance of individuals aged 1+ \deqn{ x^n + y^n = z^n } relative to carrying capacity K1+.
+}
+\examples{
+Dynamics()
+
 }

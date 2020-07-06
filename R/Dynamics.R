@@ -1,23 +1,29 @@
 #' Generate one marine mammal population trajectory
 #'
-#' @description Generates one trajectory for a marine mammal population, starting at InitDepl
-#' @param S0 calf survival rate
-#' @param S1plus survival rate for animals 1 and older
-#' @param K1plus pre-exploitation population size (1+ component of pop)
-#' @param AgeMat age at maturity
-#' @param InitDepl starting depletion level
-#' @param ConstantCatch vector(length=nyears) total bycatch each year
-#' @param ConstantF vector(length=nyears) rate of bycatch each year
-#' @param z compensation (2.39 for bowhead whaless, set as default for others)
-#' @param nyears number of years to simulate
-#' @param nages "max" age, treated as plus group
+#' This function generates one trajectory for a marine mammal population, starting at a user-specified depletion level `InitDepl`.
+#' @authors
+#' @details
+#' The population model is a single-sex age-structured model in which the number of calves or pups born each year is density dependent, with the extent of density dependence a function of the number of mature adults \eqn{\tildeN}, the fecundity (pregnancy rate) at pre-exploitation equilibrium \eqn{f_0}, the maximum theoretical fecundity rate fmax, the degree of compensation \eqn{z}, and the abundance of individuals aged 1+ \eqn{N_{y+1}^{1+}} relative to carrying capacity \eqn{K^{1+}}.
+#'
+#' @param S0 Calf survival rate
+#' @param S1plus Survival rate for animals 1 and older
+#' @param K1plus The pre-exploitation population size (1+ component of pop)
+#' @param AgeMat Age at maturity
+#' @param InitDepl Starting depletion level
+#' @param ConstantCatch Total bycatch each year, expressed as a vector of length [nyears]
+#' @param ConstantF vector (length=nyears) rate of bycatch each year
+#' @param z Degree of compensation (2.39 for bowhead whales, set as default for others)
+#' @param nyears Number of years to project
+#' @param nages "Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity + 2 without losing accuracy.
 #' @param lambdaMax max intrinsic growth rate
-#' @return a list containing one matrix N and one vector TotalPop
-#'  N has dimensions nyears (rows) x nages (columns) and contains the number of individuals at each age. TotalPop, a vector of length nyears, contains all the 1+ individuals in the population.
-
-# Note, nages = PlusGroupAge, and PlusGroupAge can = AgeMat+2 without losing accuracy (per AEP 11/30/18)
-
-Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, ConstantF=NA, z, nyears, nages, lambdaMax){
+#'
+#' @return a list containing a matrix N of numbers at age (dimensions nyears (rows) x nages (columns)) and one vector TotalPop (a vector of length nyears), containing the number of age 1+ individuals in the population.
+#'
+#' @examples
+#' Dynamics()
+#'
+#' @export
+Dynamics <- function(S0 = NA, S1plus = NA, K1plus = NA, AgeMat = NA, InitDepl = NA, ConstantCatch = NA, ConstantF = NA, z = 2.39, nyears = NA, nages = NA, lambdaMax = NA){
   # Checks
   if(length(ConstantCatch)>1 & length(ConstantF)>1){stop("Cannot have both constant F and constant catch- choose one and set the other to NA!")}
 
