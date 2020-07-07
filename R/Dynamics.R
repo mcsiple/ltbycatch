@@ -1,26 +1,28 @@
 #' Generate one marine mammal population trajectory
 #'
-#' This function generates one trajectory for a marine mammal population, starting at a user-specified depletion level `InitDepl`.
-#' @authors
+#' This function generates one trajectory for a marine mammal population, starting at a user-specified depletion level \code{InitDepl}.
+#'
 #' @details
-#' The population model is a single-sex age-structured model in which the number of calves or pups born each year is density dependent, with the extent of density dependence a function of the number of mature adults \eqn{\tildeN}, the fecundity (pregnancy rate) at pre-exploitation equilibrium \eqn{f_0}, the maximum theoretical fecundity rate fmax, the degree of compensation \eqn{z}, and the abundance of individuals aged 1+ \eqn{N_{y+1}^{1+}} relative to carrying capacity \eqn{K^{1+}}.
+#' The population model is a single-sex age-structured model in which the number of calves or pups born each year is density dependent, with the extent of density dependence a function of the number of mature adults \eqn{\tildeN}, the fecundity (pregnancy rate) at pre-exploitation equilibrium \eqn{f_0}, the maximum theoretical fecundity rate fmax, the degree of compensation \eqn{z}, and the abundance of individuals aged 1+ \eqn{N_{y+1}^{1+}} relative to carrying capacity \eqn{K^{1+}}. This function can be used alone but is intended to be used with \code{Projections()} to generate multiple simulations.
 #'
-#' @param S0 Calf survival rate
-#' @param S1plus Survival rate for animals 1 and older
-#' @param K1plus The pre-exploitation population size (1+ component of pop)
-#' @param AgeMat Age at maturity
+#' @param S0 Calf or pup survival (a value between 0 and 1)
+#' @param S1plus Survival for animals age 1 year and older (a value between 0 and 1)
+#' @param K1plus The pre-exploitation population size of individuals aged 1 and older.  If this value is unavailable, it can be approximated by using the initial depletion and the estimate of current abundance
+#' @param AgeMat Age at maturity in years (assumed to be age at first parturition - 1)
 #' @param InitDepl Starting depletion level
-#' @param ConstantCatch Total bycatch each year, expressed as a vector of length [nyears]
-#' @param ConstantF vector (length=nyears) rate of bycatch each year
-#' @param z Degree of compensation (2.39 for bowhead whales, set as default for others)
+#' @param ConstantCatch Total bycatch each year, expressed as a vector of length \code{nyears}
+#' @param ConstantF vector (length = \code{nyears}) rate of bycatch each year
+#' @param z The degree of compensation.  The default value is \code{z = 2.39}.
 #' @param nyears Number of years to project
-#' @param nages "Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity + 2 without losing accuracy.
-#' @param lambdaMax max intrinsic growth rate
+#' @param nages "Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy.
+#' @param lambdaMax The maximum intrinsic growth rate
 #'
-#' @return a list containing a matrix N of numbers at age (dimensions nyears (rows) x nages (columns)) and one vector TotalPop (a vector of length nyears), containing the number of age 1+ individuals in the population.
+#' @return A list containing a matrix \code{N} of numbers at age (dimensions \code{nyears} (rows) x \code{nages} (columns)) and one vector \code{TotalPop} (a vector of length \code{nyears}), containing the number of age 1+ individuals in the population.
 #'
-#' @examples
-#' Dynamics()
+#' @example
+#' # Generate a time series of abundance for a bowhead whale
+#' Dynamics(S0 = 0.944,S1plus = 0.99,K1plus = 9000,AgeMat = 17,InitDepl = 0.6,ConstantCatch = NA,ConstantF = rep(0.01,times=100),z = 2.39,nyears = 100,nages = 25,lambdaMax = 1.04)
+#' print(test)
 #'
 #' @export
 Dynamics <- function(S0 = NA, S1plus = NA, K1plus = NA, AgeMat = NA, InitDepl = NA, ConstantCatch = NA, ConstantF = NA, z = 2.39, nyears = NA, nages = NA, lambdaMax = NA){
