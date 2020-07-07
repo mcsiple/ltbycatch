@@ -1,6 +1,6 @@
-#' Get the bycatch mortality rate F that results in a given depletion level
+#' Get bycatch mortality rate E that results in a specified depletion
 #'
-#' This function solves for the bycatch rate \eqn{E} that gives depletion level \code{InitDepl.w}
+#' This function solves for the bycatch rate \eqn{E} that gives depletion level \code{InitDepl.w}. It is used within the \code{Projections()} function to get the stable age distribution at which to start the projections.
 #'
 #' @param f.start An initial guess for the bycatch rate E. The default value is E = 0.5
 #' @param S0.w Calf or pup survival, a numeric value between 0 and 1. (Note: the 'w' suffix indicates that \eqn{z} is in the wrapper fn, and is used inside the function by optim())

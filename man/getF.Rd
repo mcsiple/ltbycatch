@@ -2,7 +2,7 @@
 % Please edit documentation in R/getF.R
 \name{getF}
 \alias{getF}
-\title{Get the bycatch mortality rate F that results in a given depletion level}
+\title{Get bycatch mortality rate E that results in a specified depletion}
 \usage{
 getF(
   f.start = NA,
@@ -45,7 +45,7 @@ getF(
 A single value, the bycatch rate that would lead to the depletion level \code{InitDepl.w}
 }
 \description{
-This function solves for the bycatch rate \eqn{E} that gives depletion level \code{InitDepl.w}
+This function solves for the bycatch rate \eqn{E} that gives depletion level \code{InitDepl.w}. It is used within the \code{Projections()} function to get the stable age distribution at which to start the projections.
 }
 \examples{
 # Get number of individuals per recruit in terms of mature individuals (\eqn{N0.w})
