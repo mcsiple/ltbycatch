@@ -15,11 +15,15 @@ NPR(S0, S1plus, nages, AgeMat, f = 0)
 
 \item{AgeMat}{age at maturity (num)}
 
-\item{f}{'fishing' rate == bycatch rate (num)}
+\item{f}{bycatch rate (could be E; exploitation rate) (num)}
 }
 \value{
 A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
 }
 \description{
 Calculate nums per recruit at f
+}
+\examples{
+(unpr <- NPR(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0))     # unfished nums per recruit
+(nprf <- NPR(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0.8))   # nums per recruit at F
 }

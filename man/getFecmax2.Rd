@@ -2,8 +2,7 @@
 % Please edit documentation in R/getFecmax2.R
 \name{getFecmax2}
 \alias{getFecmax2}
-\title{Get max theoretical fecundity
-From a ginormous bunch of algebra we did at OMF2 - IMPORTANT: when applying this calculation, use AgeMat and when defining probability of giving birth you use parturition ages (AgeMat+1)}
+\title{Get max theoretical fecundity}
 \usage{
 getFecmax2(S0, lambdaMax, S1plus, AgeMat)
 }
@@ -21,4 +20,7 @@ A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers a
 }
 \description{
 Calculate maximum theoretical fecundity Fmax
+}
+\details{
+From a ginormous bunch of algebra we did at OMF2 - IMPORTANT: when applying this calculation, use AgeMat and when defining probability of giving birth you use parturition ages (AgeMat+1)
 }
