@@ -9,8 +9,8 @@
 #' @param AgeMat Age at maturity (num)
 #' @param z degree of compensation (num)
 #' @param A Pella-Tomlinson resilience parameter (Punt 1999; Annex R). A = (FecMax - Fec0) / Fec0 (num)
-#' @param P0 Unfished 1+ numbers per recruit, \tildeP(0). Must double-check with AEP.
-#' @param N0 Unfished mature numbers per recruit, \tildeN(0). Must double-check with AEP.
+#' @param P0 Unfished 1+ numbers per recruit, \eqn{tildeP(0)}. Must double-check with AEP.
+#' @param N0 Unfished mature numbers per recruit, \eqn{tildeN(0)}. Must double-check with AEP.
 #' @return recruitment given exploitation rate E - to multiply by Ninit to get initial nums at age (num)
 #'
 #' @export

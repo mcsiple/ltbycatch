@@ -4,7 +4,7 @@
 \alias{getRF}
 \title{Get recruitment at exploitation rate E}
 \usage{
-getRF(E, S0, S1plus, nages, K1plus, AgeMat, z, A, unpr)
+getRF(E, S0, S1plus, nages, K1plus, AgeMat, z, A, P0, N0)
 }
 \arguments{
 \item{E}{initial exploitation rate (num)}
@@ -23,7 +23,9 @@ getRF(E, S0, S1plus, nages, K1plus, AgeMat, z, A, unpr)
 
 \item{A}{Pella-Tomlinson resilience parameter (Punt 1999; Annex R). A = (FecMax - Fec0) / Fec0 (num)}
 
-\item{unpr}{Unfished numbers-per-recruit (num)}
+\item{P0}{Unfished 1+ numbers per recruit, \eqn{tildeP(0)}. Must double-check with AEP.}
+
+\item{N0}{Unfished mature numbers per recruit, \eqn{tildeN(0)}. Must double-check with AEP.}
 }
 \value{
 recruitment given exploitation rate E - to multiply by Ninit to get initial nums at age (num)
