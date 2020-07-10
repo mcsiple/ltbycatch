@@ -6,12 +6,12 @@
 \usage{
 addTrans(color, trans)
 }
-\arguments{
-\item{trans}{}
-}
 \value{
 
 }
 \description{
 Add transparency to a color
+}
+\details{
+This function adds transparancy to a color. It is from TEE. Define transparancy with an integer between 0 and 255, 0 being fully transparant and 255 being fully visible. Works with either color and trans a vector of equal length, or one of the two of length 1.
 }
