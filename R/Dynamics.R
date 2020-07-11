@@ -18,6 +18,8 @@
 #' @param lambdaMax The maximum intrinsic growth rate
 #'
 #' @return A list containing a matrix \code{N} of numbers at age (dimensions \code{nyears} (rows) x \code{nages} (columns)) and one vector \code{TotalPop} (a vector of length \code{nyears}), containing the number of age 1+ individuals in the population.
+
+# Note, nages = PlusGroupAge, and PlusGroupAge can = AgeMat+2 without losing accuracy (per AEP 11/30/18)
 #'
 #' @example
 #' # Generate a time series of abundance for a bowhead whale
@@ -25,7 +27,7 @@
 #' print(test)
 #'
 #' @export
-Dynamics <- function(S0 = NA, S1plus = NA, K1plus = NA, AgeMat = NA, InitDepl = NA, ConstantCatch = NA, ConstantF = NA, z = 2.39, nyears = NA, nages = NA, lambdaMax = NA){
+Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, ConstantF=NA, z, nyears, nages, lambdaMax){
   # Checks
   if(length(ConstantCatch)>1 & length(ConstantF)>1){stop("Cannot have both constant F and constant catch- choose one and set the other to NA!")}
 
@@ -62,8 +64,8 @@ Dynamics <- function(S0 = NA, S1plus = NA, K1plus = NA, AgeMat = NA, InitDepl = 
     # Initial conditions, non-equilibrium
   } else{             # pop starts at InitDepl*K
     NPROut <- NPR(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=0)
-    (unpr <- NPROut$npr)
-    P1r <- NPROut$P1r # 1+ nums per recruit
+    N0 <- NPROut$npr # mature nums per recruit
+    P0 <- NPROut$P1r # 1+ nums per recruit
 
     E = getF(f.start = 0.5,
              S0.w = S0,
@@ -74,7 +76,8 @@ Dynamics <- function(S0 = NA, S1plus = NA, K1plus = NA, AgeMat = NA, InitDepl = 
              InitDepl.w = InitDepl,
              z.w = z,
              lambdaMax.w = lambdaMax,
-             unpr.w = unpr)
+             N0.w = N0,
+             P0.w = P0)
 
     Ninit[1] <- 1 # N_exploited; Age 0
     Ninit[2] <- S0 # Age 1
@@ -84,10 +87,10 @@ Dynamics <- function(S0 = NA, S1plus = NA, K1plus = NA, AgeMat = NA, InitDepl = 
     Ninit[nages+1] <- (S0*(S1plus*(1-E))^(nages-1))/(1-(S1plus*(1-E)))
 
     #-----
-    Fec0 <- 1.0/unpr
+    Fec0 <- 1.0/N0
     A <- (fmax - Fec0) / Fec0
 
-    RF <- getRF(E = E,S0 = S0,S1plus = S1plus,nages = nages,K1plus = K1plus,AgeMat = AgeMat,z = z,A = A,unpr = unpr)
+    RF <- getRF(E = E,S0 = S0,S1plus = S1plus,nages = nages,K1plus = K1plus,AgeMat = AgeMat,z = z,A = A,P0 = P0,N0=N0)
     InitNumsAtAge <- Ninit*RF    # Initial nums at age
     PropsAtAge <- InitNumsAtAge/sum(InitNumsAtAge) # Proportions at age
 

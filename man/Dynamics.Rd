@@ -5,17 +5,17 @@
 \title{Generate one marine mammal population trajectory}
 \usage{
 Dynamics(
-  S0 = NA,
-  S1plus = NA,
-  K1plus = NA,
-  AgeMat = NA,
-  InitDepl = NA,
+  S0,
+  S1plus,
+  K1plus,
+  AgeMat,
+  InitDepl,
   ConstantCatch = NA,
   ConstantF = NA,
-  z = 2.39,
-  nyears = NA,
-  nages = NA,
-  lambdaMax = NA
+  z,
+  nyears,
+  nages,
+  lambdaMax
 )
 }
 \arguments{
