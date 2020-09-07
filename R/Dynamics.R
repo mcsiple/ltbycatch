@@ -27,7 +27,7 @@
 #' print(test)
 #'
 #' @export
-Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, ConstantF=NA, z, nyears, nages, lambdaMax){
+dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, ConstantF=NA, z, nyears, nages, lambdaMax){
   # Checks
   if(length(ConstantCatch)>1 & length(ConstantF)>1){stop("Cannot have both constant F and constant catch- choose one and set the other to NA!")}
 
@@ -44,15 +44,15 @@ Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, Con
   Nrep <- rep(0,length=nyrs) # number of reproductive individuals
 
   f0 <- (1-S1plus)/(S0*(S1plus)^(AgeMat-1))  # analytical soln for f0
-  fmax <- getFecmax2(lambdaMax = lambdaMax,S1plus = S1plus,S0 = S0,AgeMat = AgeMat)
+  fmax <- getfecmax(lambdaMax = lambdaMax,S1plus = S1plus,S0 = S0,AgeMat = AgeMat)
 
   # Equilibrium conditions (need outside of if() statement to get R0)
   Neq[1] = 1        # Age 0
   Neq[2] = S0       # Age 1
   for (a in 3:nages) {
-    Neq[a] = Neq[a-1]*S1plus} #Age 2+
-  Neq[nages+1]= (S0*S1plus^(nages-1))/(1-S1plus) # plus group
-  R0 <- K1plus/sum(Neq[2:(nages+1)])    # numerical soln
+    Neq[a] <- Neq[a-1]*S1plus} #Age 2+
+    Neq[nages+1] <- (S0*S1plus^(nages-1))/(1-S1plus) # plus group
+    R0 <- K1plus/sum(Neq[2:(nages+1)])    # numerical soln
 
 
   # Initial conditions, equilibrium
@@ -67,7 +67,7 @@ Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, Con
     N0 <- NPROut$npr # mature nums per recruit
     P0 <- NPROut$P1r # 1+ nums per recruit
 
-    E = getF(f.start = 0.5,
+    E = get_f(f.start = 0.5,
              S0.w = S0,
              S1plus.w = S1plus,
              nages.w = nages,
@@ -90,7 +90,7 @@ Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, Con
     Fec0 <- 1.0/N0
     A <- (fmax - Fec0) / Fec0
 
-    RF <- getRF(E = E,S0 = S0,S1plus = S1plus,nages = nages,K1plus = K1plus,AgeMat = AgeMat,z = z,A = A,P0 = P0,N0=N0)
+    RF <- get_rf(E = E,S0 = S0,S1plus = S1plus,nages = nages,K1plus = K1plus,AgeMat = AgeMat,z = z,A = A,P0 = P0,N0=N0)
     InitNumsAtAge <- Ninit*RF    # Initial nums at age
     PropsAtAge <- InitNumsAtAge/sum(InitNumsAtAge) # Proportions at age
 
@@ -129,5 +129,5 @@ Dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, Con
   }
   N <- N[-nyrs,]
   Tot1P <- Tot1P[-nyrs]
-  return(list(TotalPop=Tot1P,N=N))
+  return(list(TotalPop = Tot1P, N = N))
 }

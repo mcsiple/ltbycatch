@@ -13,7 +13,7 @@
 #' other params are the same as in the Dynamics() function
 #'
 #' @export
-Projections <- function(NOut,
+projections <- function(NOut,
                         ConstantBycatch = list(Catch=NA,CV=NA),
                         ConstantRateBycatch = list(Rate=NA,CV=NA), # need to generate values from popbio{}
                         InitDepl,
@@ -55,7 +55,7 @@ Projections <- function(NOut,
       InitVal <- rlnorm(1,meanlog,sdlog.obs)
       sdlog.catches <- sqrt(log(ConstantBycatch$CV^2 + 1)) # should be ~cv when sd is low (<0.5)
       catch.vec <- rlnorm(n = nyears,meanlog = log(ConstantBycatch$Catch),sdlog = sdlog.catches)
-      traj <- Dynamics(S0=S0, S1plus=S1plus, K1plus=K1plus,AgeMat = AgeMat,InitDepl = InitVal/K1plus,
+      traj <- dynamics(S0=S0, S1plus=S1plus, K1plus=K1plus,AgeMat = AgeMat,InitDepl = InitVal/K1plus,
                        ConstantCatch=catch.vec,
                        z = z,nyears = nyears,nages = nages,lambdaMax = lambdaMax)$TotalPop # TotalPop is 1+ component
       param.vec <- unlist(lh.params)
@@ -79,7 +79,7 @@ Projections <- function(NOut,
       for(y in 1:nyears){f.vec[y] <- popbio::betaval(mn = mn,sdev = stdev)}
       fishing.rates <- rbind(fishing.rates,f.vec)
 
-      traj <- Dynamics(S0=S0, S1plus=S1plus, K1plus=K1plus,AgeMat = AgeMat,InitDepl = InitVal/K1plus,
+      traj <- dynamics(S0=S0, S1plus=S1plus, K1plus=K1plus,AgeMat = AgeMat,InitDepl = InitVal/K1plus,
                        ConstantF = f.vec,
                        z = z,nyears = nyears,nages = nages,lambdaMax = lambdaMax)$TotalPop # TotalPop is 1+ component
 
