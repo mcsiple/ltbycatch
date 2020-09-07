@@ -7,18 +7,18 @@
 abund_rel(traj, zero.traj, K = NA, years.vec = c(10, 20, 50), fulldist = TRUE)
 }
 \arguments{
-\item{traj}{- a matrix of trajectories, with rows=nsims and cols=nyears}
+\item{traj}{a matrix of trajectories, with rows=nsims and cols=nyears}
 
-\item{zero.traj}{- a matrix of trajectories, same as traj but unfished. CHECK to make sure both start at the same simulation, in the app code.}
+\item{zero.traj}{a matrix of trajectories, same as traj but unfished. CHECK to make sure both start at the same simulation, in the app code.}
 
 \item{K}{if calculating abundance relative to K, put in K.}
 
 \item{years.vec}{a vector of years to check abundances at. E.g., how many years after the start of projections do you want to know abundance?}
 
-\item{fuldist}{do you want the median of all the outputs or do you want the full simulation list?}
+\item{fulldist}{logical saying whether to return the full distribution of relative abundances or the median of all the relative abundances.}
 }
 \value{
-A vector of abundance relative to K or zero-exploitation where nrows=length of years.vec (10 years after, 20 years, etc.) and ncol=number of simulations
+a vector of abundance relative to K or zero-exploitation where nrows=length of years.vec (10 years after, 20 years, etc.) and ncol=number of simulations.
 }
 \description{
 Calculates the expected abundance relative to zero exploitation, years.vec years after projections start

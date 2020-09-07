@@ -4,8 +4,8 @@
 #' @param x A number
 #' @return the inverse logit of x. Returns NA if is.na(x)
 #' @examples
-#' inv.logit(0)
-#' inv.logit(1)
+#' inv_logit(0)
+#' inv_logit(1)
 #'
 #' @export
 inv_logit <- function(x){

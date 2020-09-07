@@ -2,25 +2,25 @@
 % Please edit documentation in R/1_getfecmax.R
 \name{getfecmax}
 \alias{getfecmax}
-\title{Get max theoretical fecundity}
+\title{Calculate maximum theoretical fecundity}
 \usage{
 getfecmax(S0, lambdaMax, S1plus, AgeMat)
 }
 \arguments{
-\item{S0}{Calf survival (num)}
+\item{S0}{calf/pup survival, a numeric value between 0 and 1}
 
-\item{lambdaMax}{Maximum population growth rate (num)}
+\item{lambdaMax}{Maximum population growth rate (a numeric value)}
 
-\item{S1plus}{Survival of age 1+ individuals (num)}
+\item{S1plus}{Survival of age 1+ individuals, a numeric value between 0 and 1}
 
-\item{AgeMat}{Age at maturity (num)}
+\item{AgeMat}{age at maturity (in years)}
 }
 \value{
-A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
+a single numeric value for maximum theoretical fecundity.
 }
 \description{
 Calculate maximum theoretical fecundity Fmax
 }
 \details{
-From a ginormous bunch of algebra we did at OMF2 - IMPORTANT: when applying this calculation, use AgeMat and when defining probability of giving birth you use parturition ages (AgeMat+1)
+Parts of this derivation can be found in Breiwick et al. (1984) and Butterworth and Punt (1992). IMPORTANT: when applying this calculation, use AgeMat, and when defining probability of giving birth you use parturition ages (age at maturity + one year)
 }

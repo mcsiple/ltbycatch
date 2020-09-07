@@ -7,28 +7,28 @@
 get_rf(E, S0, S1plus, nages, K1plus, AgeMat, z, A, P0, N0)
 }
 \arguments{
-\item{E}{initial exploitation rate (num)}
+\item{E}{initial exploitation rate (numeric value)}
 
-\item{S0}{Calf or pup survival (num)}
+\item{S0}{calf or pup survival (numeric value)}
 
-\item{S1plus}{Adult survival  (num)}
+\item{S1plus}{adult survival  (numeric value)}
 
-\item{nages}{Number of age classes, incl plus group age (num)}
+\item{nages}{number of age classes, incl plus group age in years}
 
-\item{K1plus}{Adult carrying capacity (num)}
+\item{K1plus}{adult carrying capacity (number of individuals)}
 
-\item{AgeMat}{Age at maturity (num)}
+\item{AgeMat}{age at maturity (number of years)}
 
-\item{z}{degree of compensation (num)}
+\item{z}{degree of compensation, in the app calculated from the value of MNPL defined by the user}
 
 \item{A}{Pella-Tomlinson resilience parameter (Punt 1999; Annex R). A = (FecMax - Fec0) / Fec0 (num)}
 
-\item{P0}{Unfished 1+ numbers per recruit, \eqn{tildeP(0)}. Must double-check with AEP.}
+\item{P0}{unfished 1+ numbers per recruit, \eqn{tildeP(0)}. Must double-check with AEP.}
 
-\item{N0}{Unfished mature numbers per recruit, \eqn{tildeN(0)}. Must double-check with AEP.}
+\item{N0}{unfished mature numbers per recruit, \eqn{tildeN(0)}. Must double-check with AEP.}
 }
 \value{
-recruitment given exploitation rate E - to multiply by Ninit to get initial nums at age (num)
+recruitment given exploitation rate E - this value is multiplied by the initial abundance \eqn{N_{init}} to get initial nums at age ( a vector)
 }
 \description{
 calculates recruitment at exploitation rate E
