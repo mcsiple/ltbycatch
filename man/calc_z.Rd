@@ -12,14 +12,14 @@ calc_z(MNPL_in, lh.params_in)
 \item{lh.params_in}{a list of life history parameters}
 }
 \value{
-
+the value of z corresponding to the value of MNPL (as a proportion of K) that the user has defined.
 }
 \description{
 Calculate z (degree of compensation)
 }
 \details{
-Helper function for getting Z when user specifies MNPL
+Helper function for calculating z when user specifies MNPL
 }
 \examples{
-(test.z <- calc_z(MNPL_in = 0.4,lh.params_in = lh.params1))
+test.z <- calc_z(MNPL_in = 0.4,lh.params_in = lh.params1)
 }

@@ -2,13 +2,13 @@
 #'
 #' @param MNPL_in User-specified value for MNPL (between 0 and 1)
 #' @param lh.params_in a list of life history parameters
-#' @details Helper function for getting Z when user specifies MNPL
+#' @details Helper function for calculating z when user specifies MNPL
 #'
-#' @return
+#' @return the value of z corresponding to the value of MNPL (as a proportion of K) that the user has defined.
 #' @export
 #'
 #' @examples
-#' (test.z <- calc_z(MNPL_in = 0.4,lh.params_in = lh.params1))
+#' test.z <- calc_z(MNPL_in = 0.4,lh.params_in = lh.params1)
 calc_z <- function(MNPL_in, lh.params_in){
   lims <- c(0.107,7) # z limits from AEP meeting were 0 and 7, the lower limit I increased bc too low z is a problem.
   zero.cross <- tryCatch(

@@ -1,6 +1,7 @@
 #' Get numbers per recruit
 #'
 #' @description Calculate nums per recruit at f
+#'
 #' @param S0 calf survival (num)
 #' @param S1plus adult survival (num)
 #' @param nages plus group age (num)
@@ -11,7 +12,7 @@
 #' @examples
 #' (unpr <- NPR(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0))     # unfished nums per recruit
 #' (nprf <- NPR(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0.8))   # nums per recruit at F
-
+#'
 #' @export
 npr <- function(S0, S1plus, nages, AgeMat, f=0){
   AgePart <- AgeMat+1 # Age at first parturition
