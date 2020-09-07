@@ -8,7 +8,7 @@
 #' inv.logit(1)
 #'
 #' @export
-inv.logit <- function(x){
+inv_logit <- function(x){
   rev <- exp(x)/(1+exp(x))
   return(rev)
 }

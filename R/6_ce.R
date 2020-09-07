@@ -13,13 +13,13 @@
 #' @return a single value of normalized yield for exploitation rate E
 #'
 #' @export
-cE <- function(S0, S1plus, nages,K1plus,AgeMat, z, lambdaMax, E, A, P0, N0){
-  npr1plus <- NPR(S0 = S0,
+ce <- function(S0, S1plus, nages,K1plus,AgeMat, z, lambdaMax, E, A, P0, N0){
+  npr1plus <- npr(S0 = S0,
                   S1plus = S1plus,
                   nages = nages,
                   AgeMat = AgeMat,
                   f = E)$P1r # 1+ nums per recruit @ E, written as P[tilde](E)
-  recatF <- getRF(E = E,
+  recatF <- get_rf(E = E,
                   S0 = S0,
                   S1plus = S1plus,
                   nages = nages,

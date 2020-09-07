@@ -14,10 +14,10 @@
 #' @return recruitment given exploitation rate E - to multiply by Ninit to get initial nums at age (num)
 #'
 #' @export
-getRF <- function(E, S0, S1plus, nages,K1plus, AgeMat, z, A, P0, N0){
+get_rf <- function(E, S0, S1plus, nages,K1plus, AgeMat, z, A, P0, N0){
 
-  NE <- NPR(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=E)$npr
-  PE <- NPR(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=E)$P1r
+  NE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=E)$npr
+  PE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=E)$P1r
 
   # More general version ('actual' R0 = K1plus/P1r)
   R0 <- 1

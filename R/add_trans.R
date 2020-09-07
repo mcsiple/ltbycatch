@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-addTrans <- function(color,trans)
+add_trans <- function(color,trans)
 { if (length(color)!=length(trans)&!any(c(length(color),length(trans))==1)) stop("Vector lengths not correct")
   if (length(color)==1 & length(trans)>1) color <- rep(color,length(trans))
   if (length(trans)==1 & length(color)>1) trans <- rep(trans,length(color))

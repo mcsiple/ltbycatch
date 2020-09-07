@@ -16,7 +16,7 @@
 #' @return A plot of 50 percent and 90 percent confidence intervals of population projections (if \code{spaghetti ==FALSE}) or a spaghetti plot (if \code{spaghetti ==TRUE}),  from \code{Projections()}.
 #'
 #' @export
-plot.proj <- function(high,
+plot_proj <- function(high,
                       med,
                       low,
                       years.plot = 50,

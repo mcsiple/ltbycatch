@@ -3,7 +3,7 @@
 #'
 #' @param K carrying capacity
 #' @param years.vec vector of years to check abundances at. If length = 1, the fn returns relative abundance at that year
-abund.rel.vec <- function(traj.list,K = NA,years.vec = 10){
+abund_rel_vec <- function(traj.list,K = NA,years.vec = 10){
 
   if(length(traj.list)!=4){stop('Make sure all four outputs are here (high, med, low, zero bycatch)')}
   if(is.na(K)){K <- traj.list[[1]][[1]]$params[1,'K1plus']} # If K undefined, use K from outputs

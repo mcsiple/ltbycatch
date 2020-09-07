@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-make.ptable <- function(traj.list, depletion, lh.params, mnpl){
+make_ptable <- function(traj.list, depletion, lh.params, mnpl){
   # Each of these is one depletion level
   HiDepl1 <- unlist(lapply(X = traj.list,FUN = function(x) prob.rebuilt.goal(traj = x[[1]][['trajectories']],goal = mnpl*lh.params$K1plus,rebuild.yr = 50)))
   # This is a list of the probability of recovery for each bycatch level, for the first depletion level

@@ -11,7 +11,7 @@
 get_dz <- function(z, MNPL, lh.params){
   # want diff between MNPL and f(z) equal to zero
   lh.params$z = z
-  MNPL_calc <- getMNPL(lh.params = lh.params)
+  MNPL_calc <- get_mnpl(lh.params = lh.params)
   dZ <- MNPL - MNPL_calc
   return(dZ)
 }

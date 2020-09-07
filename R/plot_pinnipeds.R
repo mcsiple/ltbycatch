@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-plot.pinnipeds <- function(dat, central = FALSE, set_size=14){
+plot_pinnipeds <- function(dat, central = FALSE, set_size=14){
   if(length(unique(dat$Species)) != 24){stop("your csv has too many species in it-- this will ruin the labels")}
   dat$Value <- as.character(dat$Value)
 

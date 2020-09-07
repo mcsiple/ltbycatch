@@ -23,7 +23,7 @@
 #' @return A plot of 50% and 90% confidence intervals of population projections (if \code{spaghetti ==FALSE}) or a spaghetti plot (if \code{spaghetti ==TRUE}),  from \code{Projections()}.
 #'
 #' @export
-multiplot.proj <- function(high.d1=testing.list[[1]][3][[1]]$trajectories, # d1 is lowest depl
+multiplot_proj <- function(high.d1=testing.list[[1]][3][[1]]$trajectories, # d1 is lowest depl, high is highest bycatch rate
                            med.d1=testing.list[[1]][2][[1]]$trajectories,
                            low.d1=testing.list[[1]][1][[1]]$trajectories,
                            high.d2=testing.list[[2]][3][[1]]$trajectories,

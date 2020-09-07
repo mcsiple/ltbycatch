@@ -8,7 +8,7 @@
 #' @param fmax Max theoretical fecundity (num)
 #'
 #' @export
-findMSYR <- function(E.start, lh.params, fmax, N0){
+find_msyr <- function(E.start, lh.params, fmax, N0){
 
   S0.w <- lh.params$S0
   S1plus.w <- lh.params$S1plus
@@ -18,14 +18,14 @@ findMSYR <- function(E.start, lh.params, fmax, N0){
   K1plus.w = lh.params$K1plus
   z.w = lh.params$z
 
-  unex <- NPR(S0 = S0.w,S1plus = S1plus.w,nages = nages.w, AgeMat = AgeMat.w, f=0)
+  unex <- npr(S0 = S0.w,S1plus = S1plus.w,nages = nages.w, AgeMat = AgeMat.w, f=0)
   #N0 <- unex$npr
   P0 <- unex$P1r
 
   Fec0 <- 1.0/N0
   A <- (fmax - Fec0) / Fec0
 
-  search.limit <- getF(f.start = 0.005,
+  search.limit <- get_f(f.start = 0.005,
                        S0.w = S0.w,
                        S1plus.w = S1plus.w,
                        nages.w = nages.w,
@@ -42,9 +42,9 @@ findMSYR <- function(E.start, lh.params, fmax, N0){
   logit.E = logit(E.start)
 
   zero.cross <- uniroot(f = getdC,interval = lims,tol=1e-7, S0=S0.w, S1plus=S1plus.w, nages=nages.w, AgeMat=AgeMat.w, lambdaMax=lambdaMax.w, K1plus=K1plus.w, z=z.w)
-  fmsy <- inv.logit(zero.cross$root)
+  fmsy <- inv_logit(zero.cross$root)
 
-  MSY <- cE(S0 = S0.w,
+  MSY <- ce(S0 = S0.w,
             S1plus = S1plus.w,
             nages = nages.w,
             K1plus = K1plus.w,

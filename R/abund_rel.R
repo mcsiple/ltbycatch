@@ -10,7 +10,7 @@
 #' @return A vector of abundance relative to K or zero-exploitation where nrows=length of years.vec (10 years after, 20 years, etc.) and ncol=number of simulations
 #'
 #' @export
-abund.rel <- function(traj, zero.traj, K=NA, years.vec=c(10,20,50),fulldist = TRUE){
+abund_rel <- function(traj, zero.traj, K=NA, years.vec=c(10,20,50),fulldist = TRUE){
   nsims <- nrow(traj)
   rel.abund <- matrix(data = NA,nrow = length(years.vec),ncol = nsims)
   if(!is.na(K)){

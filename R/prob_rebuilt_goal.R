@@ -8,7 +8,7 @@
 #'
 #' @return - the probability that each stock will be rebuilt to MNPL by year rebuilt.yr
 #' @export
-prob.rebuilt.goal <- function(traj, goal = 0.5*lh.params.test$K1plus, rebuild.yr=100){
+prob_rebuilt_goal <- function(traj, goal = 0.5*lh.params.test$K1plus, rebuild.yr=100){
 
   if(ncol(traj) < rebuild.yr)stop("Need more years of projection")
   nsims <- nrow(traj)
