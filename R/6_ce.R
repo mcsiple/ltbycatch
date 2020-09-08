@@ -3,17 +3,20 @@
 #'
 #' @param S0 Calf/pup survival
 #' @param S1plus 1+ survival (usually called "juvenile + adult" in literature)
-#' @param nages Same as plus group age, called "maximum (lumped) age-class" in Annex R
+#' @param nages Same as plus group age, called "maximum (lumped) age-class" in Punt (1999) Annex R
 #' @param K1plus 1+ carrying capacity
 #' @param AgeMat Age at maturity (= age at first parturition - 1)
 #' @param z degree of compensation
 #' @param E exploitation rate
 #' @param P0 unfished nums per recruit - 1+ adults
+#' @param lambdaMax maximum steady rate of increase (population growth rate)
+#' @param A the Pella-Tomlinson resilience parameter ((fmax - f0)/f0)
 #' @param N0 unfished nums per recruit - mature adults
+#'
 #' @return a single value of normalized yield for exploitation rate E
 #'
 #' @export
-ce <- function(S0, S1plus, nages,K1plus,AgeMat, z, lambdaMax, E, A, P0, N0){
+ce <- function(S0, S1plus, nages, K1plus, AgeMat, z, lambdaMax, E, A, P0, N0){
   npr1plus <- npr(S0 = S0,
                   S1plus = S1plus,
                   nages = nages,
@@ -29,8 +32,8 @@ ce <- function(S0, S1plus, nages,K1plus,AgeMat, z, lambdaMax, E, A, P0, N0){
                   A = A,
                   P0 = P0,
                   N0 = N0) # recruitment at E=E
-  recat0 <- 1  # recruitment at E=0 ("unfished")
-  rel_rec <- recatF/recat0 # normalized recruitment when E=E, known as B(E)
+  recat0 <- 1  # recruitment at E = 0 (no bycatch)
+  rel_rec <- recatF/recat0 # normalized recruitment when E = E, known as B(E)
   cpr1plus <- E * rel_rec * npr1plus # 1+ catch-per-recruit at exploitation rate E, AKA normalized sustainable yield
   return(cpr1plus)
 }

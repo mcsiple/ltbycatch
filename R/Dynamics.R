@@ -15,7 +15,7 @@
 #' @param z The degree of compensation.  The default value is \code{z = 2.39}.
 #' @param nyears Number of years to project
 #' @param nages "Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy.
-#' @param lambdaMax The maximum intrinsic growth rate
+#' @param lambdaMax Maximum steady rate of increase (population growth rate)
 #'
 #' @return A list containing a matrix \code{N} of numbers at age (dimensions \code{nyears} (rows) x \code{nages} (columns)) and one vector \code{TotalPop} (a vector of length \code{nyears}), containing the number of age 1+ individuals in the population.
 
