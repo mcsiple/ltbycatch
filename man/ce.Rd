@@ -11,7 +11,7 @@ ce(S0, S1plus, nages, K1plus, AgeMat, z, lambdaMax, E, A, P0, N0)
 
 \item{S1plus}{1+ survival (usually called "juvenile + adult" in literature)}
 
-\item{nages}{Same as plus group age, called "maximum (lumped) age-class" in Annex R}
+\item{nages}{Same as plus group age, called "maximum (lumped) age-class" in Punt (1999) Annex R}
 
 \item{K1plus}{1+ carrying capacity}
 
@@ -19,7 +19,11 @@ ce(S0, S1plus, nages, K1plus, AgeMat, z, lambdaMax, E, A, P0, N0)
 
 \item{z}{degree of compensation}
 
+\item{lambdaMax}{maximum steady rate of increase (population growth rate)}
+
 \item{E}{exploitation rate}
+
+\item{A}{the Pella-Tomlinson resilience parameter ((fmax - f0)/f0)}
 
 \item{P0}{unfished nums per recruit - 1+ adults}
 

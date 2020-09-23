@@ -16,7 +16,7 @@ the inverse logit of x. Returns NA if is.na(x)
 The inverse logit of x
 }
 \examples{
-inv.logit(0)
-inv.logit(1)
+inv_logit(0)
+inv_logit(1)
 
 }

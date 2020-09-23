@@ -39,7 +39,7 @@ dynamics(
 
 \item{nages}{"Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy.}
 
-\item{lambdaMax}{The maximum intrinsic growth rate}
+\item{lambdaMax}{Maximum steady rate of increase (population growth rate)}
 }
 \value{
 A list containing a matrix \code{N} of numbers at age (dimensions \code{nyears} (rows) x \code{nages} (columns)) and one vector \code{TotalPop} (a vector of length \code{nyears}), containing the number of age 1+ individuals in the population.

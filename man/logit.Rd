@@ -7,7 +7,7 @@
 logit(p)
 }
 \arguments{
-\item{p}{Number to take the logit of}
+\item{p}{Number to logit-transform}
 }
 \description{
 Take the logit transform of a number p

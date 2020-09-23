@@ -19,27 +19,27 @@ get_f(
 )
 }
 \arguments{
-\item{f.start}{An initial guess for the bycatch rate E. The default value is E = 0.5}
+\item{f.start}{an initial guess for the bycatch rate E. The default value is E = 0.5}
 
 \item{S0.w}{Calf or pup survival, a numeric value between 0 and 1. (Note: the 'w' suffix indicates that \eqn{z} is in the wrapper fn, and is used inside the function by optim())}
 
-\item{S1plus.w}{Survival for animals age 1 year and older (a value between 0 and 1)}
+\item{S1plus.w}{survival for animals age 1 year and older (a numeric value between 0 and 1)}
 
-\item{nages.w}{"Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy.}
+\item{nages.w}{"maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy.}
 
-\item{K1plus.w}{The pre-exploitation population size of individuals aged 1 and older. If this value is unavailable, it can be approximated by using the initial depletion and the estimate of current abundance.}
+\item{K1plus.w}{the pre-exploitation population size of individuals aged 1 and older. If this value is unavailable, it can be approximated by using the initial depletion and the estimate of current abundance.}
 
-\item{AgeMat.w}{Age at maturity in years (assumed to be age at first parturition - 1)}
+\item{AgeMat.w}{age at maturity in years (assumed to be age at first parturition - 1)}
 
-\item{InitDepl.w}{The depletion level to solve for (this is equivalent to 'starting depletion')}
+\item{InitDepl.w}{the depletion level to solve for (this is equivalent to 'starting depletion')}
 
-\item{z.w}{The degree of compensation. The default value is \code{z = 2.39}.}
+\item{z.w}{the degree of compensation. The default value is \code{z = 2.39}.}
 
-\item{lambdaMax.w}{The maximum intrinsic growth rate}
+\item{lambdaMax.w}{the maximum intrinsic growth rate}
 
-\item{N0.w}{Numbers per recruit in terms of mature individuals individuals}
+\item{N0.w}{numbers per recruit in terms of mature individuals individuals}
 
-\item{P0.w}{Numbers per recruit in terms of aged 1+ individuals individuals}
+\item{P0.w}{numbers per recruit in terms of aged 1+ individuals individuals}
 }
 \value{
 A single value, the bycatch rate that would lead to the depletion level \code{InitDepl.w}
@@ -49,11 +49,11 @@ This function solves for the bycatch rate \eqn{E} that gives depletion level \co
 }
 \examples{
 # Get number of individuals per recruit in terms of mature individuals (\eqn{N0.w})
-NPROut <- NPR(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, f=0)
+NPROut <- npr(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, f=0)
 N0 <- NPROut$npr # mature numbers per recruit
 # Get number of individuals per recruit in terms of individuals aged 1+ (\eqn{P0.w})
 P0 <- NPROut$P1r # 1+ nums per recruit
 
-getF(f.start = 0.5,S0.w = 0.5,S1plus.w = 0.944,nages.w = 25,K1plus.w = 9000,AgeMat.w = 18,InitDepl.w = 0.9,z.w = 2.39,lambdaMax.w = 1.04,N0.w = N0,P0.w = P0)
+get_f(f.start = 0.5,S0.w = 0.5,S1plus.w = 0.944,nages.w = 25,K1plus.w = 9000,AgeMat.w = 18,InitDepl.w = 0.9,z.w = 2.39,lambdaMax.w = 1.04,N0.w = N0,P0.w = P0)
 
 }
