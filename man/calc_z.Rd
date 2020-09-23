@@ -2,7 +2,7 @@
 % Please edit documentation in R/11_calc_z.R
 \name{calc_z}
 \alias{calc_z}
-\title{Calculate z (degree of compensation)}
+\title{Degree of compensation}
 \usage{
 calc_z(MNPL_in, lh.params_in)
 }
@@ -15,7 +15,7 @@ calc_z(MNPL_in, lh.params_in)
 the value of z corresponding to the value of MNPL (as a proportion of K) that the user has defined.
 }
 \description{
-Calculate z (degree of compensation)
+Calculate the parameter z, the degree of compensation
 }
 \details{
 Helper function for calculating z when user specifies MNPL

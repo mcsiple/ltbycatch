@@ -24,25 +24,39 @@ multiplot_proj(
 )
 }
 \arguments{
-\item{high.d1}{a list containing output from Projections() (including a matrix of simulation trajectories) - this corresponds to the highest bycatch level (thus "high") and the depletion level (\code{d1} indicates the lowest starting depletion level)}
+\item{med.d1}{a list containing the middle bycatch value and lowest starting depletion}
 
-\item{years.plot}{How many years to plot}
+\item{low.d1}{a list containing the lowest bycatch value and lowest starting depletion}
 
-\item{ylims}{}
+\item{high.d2}{a list containing the highest bycatch value and middle starting depletion}
 
-\item{spaghetti}{Either FALSE or a number, where the number is how many simulations to show from the same scenario}
+\item{med.d2}{a list containing the middle bycatch value and middle starting depletion}
+
+\item{low.d2}{a list containing the lowest bycatch value and middle starting depletion}
+
+\item{high.d3}{a list containing the highest bycatch value and highest starting depletion}
+
+\item{med.d3}{a list containing the middle bycatch value and highest starting depletion}
+
+\item{low.d3}{a list containing the lowest bycatch value and highest starting depletion}
+
+\item{years.plot}{number of years to plot}
+
+\item{ylims}{plot y limits}
+
+\item{spaghetti}{either FALSE or a number, where the number is how many simulations to show from the same scenario}
 
 \item{years.to.plot}{How many years to plot on the x axis}
 
-\item{K1plus}{The carrying capacity in terms of the 1+ component of the population}
+\item{K1plus}{carrying capacity in terms of the 1+ component of the population}
 
-\item{InitDepls}{A vector of initial depletion levels; if the user has selected "show multiple depletion levels" in the app, this vector is automatically the depletion they entered (d), 75 percent of that value ("low" depletion) and 125 percent of that value ("high depletion")}
+\item{InitDepls}{a vector of initial depletion levels; if the user has selected "show multiple depletion levels" in the app, this vector is automatically the depletion they entered, 75 percent of that value ("low" depletion) and 125 percent of that value ("high depletion")}
 
-\item{color.palette}{A three-element vector giving the color values for low, medium, and high bycatch}
+\item{color.palette}{A vector of length 3 giving the color values for low, medium, and high bycatch mortality or bycatch mortality rate}
 }
 \value{
-A plot of 50% and 90% confidence intervals of population projections (if \code{spaghetti ==FALSE}) or a spaghetti plot (if \code{spaghetti ==TRUE}),  from \code{Projections()}.
+A plot of 50% and 90% confidence intervals of population projections if \code{spaghetti == FALSE} or a spaghetti plot with n individual projections if \code{spaghetti == n },  from \code{Projections()}.
 }
 \description{
-plots outputs from several projections that result from a Projections() call, with multiple depletion levels.
+plots outputs from several projections that result from \code{Projections()}, with multiple depletion levels.
 }

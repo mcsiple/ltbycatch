@@ -11,30 +11,32 @@ plot_proj(
   years.plot = 50,
   ylims,
   spaghetti = FALSE,
-  years.to.plot = 50,
   K1plus = 9000,
   InitDepl = 0.8,
-  color.palette = c("forestgreen", "darkorange", "red"),
-  multiplot = FALSE
+  color.palette = c("forestgreen", "darkorange", "red")
 )
 }
 \arguments{
-\item{high}{A list containing output from Projections() (including a matrix of simulation trajectories) - corresponding to a high bycatch level (this is at the high end of the range defined by the user in the Shiny app)}
+\item{high}{a list containing output from \code{Projections()} (including a matrix of simulation trajectories) - corresponding to a high bycatch level (this is at the high end of the range defined by the user in the Shiny app)}
 
-\item{med}{A list containing output from Projections() (including a matrix of simulation trajectories) - corresponding to a medium bycatch level (this is at the median of the low and high end of the range defined by the user)}
+\item{med}{a list containing output from \code{Projections()} (including a matrix of simulation trajectories) - corresponding to a medium bycatch level (this is at the median of the low and high end of the range defined by the user)}
 
-\item{low}{A list containing output from Projections() (including a matrix of simulation trajectories) - corresponding to a high bycatch level (this is at the high end of the range defined by the user)}
+\item{low}{a list containing output from \code{Projections()} (including a matrix of simulation trajectories) - corresponding to a high bycatch level (this is at the high end of the range defined by the user)}
 
-\item{years.plot}{- how many years to plot}
+\item{years.plot}{number of years to plot on the x axis}
 
-\item{spaghetti}{- either FALSE or a number, where the number is how many simulations to show from the same scenario}
+\item{ylims}{y-limits of projection plot}
 
-\item{years.to.plot}{- how many years to plot on the x axis}
+\item{spaghetti}{either FALSE or a number, where the number is how many simulations to show from the same scenario}
 
-\item{multiplot}{}
+\item{K1plus}{carrying capacity in terms of age 1+ individuals}
+
+\item{InitDepl}{initial depletion level (set by the user)}
+
+\item{color.palette}{a vector of three colors to use for low, medium and high bycatch rates}
 }
 \value{
-A plot of 50 percent and 90 percent confidence intervals of population projections (if \code{spaghetti ==FALSE}) or a spaghetti plot (if \code{spaghetti ==TRUE}),  from \code{Projections()}.
+A plot of 50 percent and 90 percent confidence intervals of population projections (if \code{spaghetti == FALSE}) or a spaghetti plot (if \code{spaghetti ==TRUE}),  from \code{Projections()}.
 }
 \description{
 plots outputs from several projections that result from a Projections() call.
