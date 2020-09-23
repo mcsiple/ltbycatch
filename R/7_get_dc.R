@@ -2,7 +2,7 @@
 #'
 #' @description this is the function to minimize, but needs to be restricted to that yield > 0
 #' All life history params are as above
-#' @param logit.E logit transform of exploitation rate
+#' @param logit.E logit transform of bycatch mortality
 #' @param S0 calf/pup survival
 #' @export
 get_dc <- function(logit.E,S0=S0.w, S1plus=S1plus.w, nages=nages.w, AgeMat=AgeMat.w, lambdaMax=lambdaMax.w, K1plus=K1plus.w, z=z.w){

@@ -2,7 +2,7 @@
 #'
 #' @description one of the functions needed for getting MNPL. MSYR is the same as FMSY.
 #'
-#' @param E.start a starting guess for exploitation rate that will result in FMSY (numeric value)
+#' @param E.start a starting guess for bycatch mortality rate that will result in FMSY (numeric value)
 #' @param lh.params a list of life history parameters (S0, S1plus, nages, AgeMat, lmabdaMax, K1plus, and z)
 #' @param unpr unfished numbers per recruit (num)
 #' @param fmax Max theoretical fecundity (num)

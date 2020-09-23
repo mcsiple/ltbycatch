@@ -2,7 +2,7 @@
 #'
 #' @param z the degree of compensation
 #' @param MNPL maximum net productivity level
-#' @param lh.params a list of life history parameters (juvenile survival S0,adult survival S1plus, age at maturity AgeMat, plus group age, max theoretical fecundity fmax, maximum steady steady rate of increase (population growth rate) lambdaMax, and carrying capacity K1plus)
+#' @param lh.params a list of life history parameters (juvenile survival S0, adult survival S1plus, age at maturity AgeMat, plus group age, max theoretical fecundity fmax, maximum steady steady rate of increase (population growth rate) lambdaMax, and carrying capacity K1plus)
 #'
 #' @return The difference between the MNPL associated with the value of z that the user defined and the MNPL that the user has defined.
 #' @export

@@ -16,7 +16,7 @@ get_dc(
 )
 }
 \arguments{
-\item{logit.E}{logit transform of exploitation rate}
+\item{logit.E}{logit transform of bycatch mortality}
 
 \item{S0}{calf/pup survival}
 }

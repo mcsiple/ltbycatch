@@ -1,10 +1,20 @@
-# Plot 2 ------------------------------------------------------------------
-# Relative population size (x) vs. Sustainable yield (y)
+#' Yield or productivity curve
+#' @description relative population size (x) vs. Sustainable yield (y)
+#' @param z.vec a vector of z values
+#' @param lh.params a list of life history parameters
+#' @param add.legend logical; whether or not to add a legend
+#' @param ggp logical; whether to plot in ggplot (default is base R)
+#' @param linecolor color of yield curve line
+#'
+#' @return
+#' @export
+#'
+#' @examples
 pop_v_yield <- function(z.vec = c(1,2.39,5.99),
-                  lh.params=lh.params1,
-                  add.legend=FALSE,
-                  ggp=FALSE,
-                  linecolor="#123f5a"){
+                        lh.params=lh.params1,
+                        add.legend=FALSE,
+                        ggp=FALSE,
+                        linecolor="#123f5a"){
   n2p = 100
   S0 = lh.params$S0
   S1plus = lh.params$S1plus
@@ -26,9 +36,9 @@ pop_v_yield <- function(z.vec = c(1,2.39,5.99),
   #unpr <- NPROut$npr
   Fec0 <- 1.0/N0
   fmax <- getfecmax(lambdaMax = lambdaMax,
-                     S1plus = S1plus,
-                     S0 = S0,
-                     AgeMat = AgeMat)
+                    S1plus = S1plus,
+                    S0 = S0,
+                    AgeMat = AgeMat)
   A <- (fmax - Fec0) / Fec0
   E.vec <- seq(0,0.1,length.out=100)
   if(ggp){
@@ -95,6 +105,11 @@ pop_v_yield <- function(z.vec = c(1,2.39,5.99),
         print(paste("approx MNPL",round(rel1plus[maxyield],digits=2)))
         print(paste("approx FMSY",round(E.vec[maxyield],digits=5)))
       }
-      if(add.legend){legend("topright",lty=c(1,1,1),col=cols,legend = c("z = 1","z = 2.39","z = 5.99"))}
+
+      if(add.legend){
+        legend("topright",
+               lty=c(1,1,1),
+               col=cols,
+               legend = c("z = 1","z = 2.39","z = 5.99"))}
     } # end base R version
 }

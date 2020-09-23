@@ -2,9 +2,9 @@
 % Please edit documentation in R/0_npr.R
 \name{npr}
 \alias{npr}
-\title{Get numbers per recruit}
+\title{Calculate numbers per recruit}
 \usage{
-npr(S0, S1plus, nages, AgeMat, f = 0)
+npr(S0, S1plus, nages, AgeMat, E = 0)
 }
 \arguments{
 \item{S0}{calf survival, a numeric value between 0 and 1}
@@ -15,16 +15,16 @@ npr(S0, S1plus, nages, AgeMat, f = 0)
 
 \item{AgeMat}{age at maturity in years}
 
-\item{f}{bycatch rate (numeric value before 0 and 1)}
+\item{E}{bycatch mortality rate}
 }
 \value{
-A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
+A list of numbers per recruit (\code{npr}), 1+ numbers per recruit (\code{P1r}), and numbers at age per recruit (\code{nvec})
 }
 \description{
-Calculate nums per recruit at exploitation rate f
+Calculate nums per recruit at exploitation rate \emph{f}.
 }
 \examples{
-(unpr <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0))     # unfished nums per recruit
-(nprf <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0.8))   # nums per recruit at F
+(unpr <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,E=0))     # unfished nums per recruit
+(nprf <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,E=0.8))   # nums per recruit at bycatch rate E
 
 }

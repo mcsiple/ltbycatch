@@ -1,9 +1,9 @@
-#' Get bycatch mortality rate E that results in a specified depletion
+#' Get bycatch mortality rate given depletion
 #'
-#' This function solves for the bycatch rate \eqn{E} that gives depletion level \code{InitDepl.w}. It is used within the \code{Projections()} function to get the stable age distribution at which to start the projections.
+#' This function solves for the bycatch mortality rate \eqn{E} that gives depletion level \code{InitDepl.w}. It is used within the \code{Projections()} function to get the stable age distribution at which to start the projections.
 #'
-#' @param f.start an initial guess for the bycatch rate E. The default value is E = 0.5
-#' @param S0.w Calf or pup survival, a numeric value between 0 and 1. (Note: the 'w' suffix indicates that \eqn{z} is in the wrapper fn, and is used inside the function by optim())
+#' @param f.start an initial guess for the bycatch mortality rate E. The default value is E = 0.5
+#' @param S0.w Calf or pup survival, a numeric value between 0 and 1. (Note: the 'w' suffix indicates that \eqn{z} is in the wrapper function, and is used inside the function by \code{optim})
 #' @param S1plus.w  survival for animals age 1 year and older (a numeric value between 0 and 1)
 #' @param K1plus.w the pre-exploitation population size of individuals aged 1 and older. If this value is unavailable, it can be approximated by using the initial depletion and the estimate of current abundance.
 #' @param AgeMat.w age at maturity in years (assumed to be age at first parturition - 1)
@@ -14,11 +14,11 @@
 #' @param N0.w numbers per recruit in terms of mature individuals individuals
 #' @param P0.w  numbers per recruit in terms of aged 1+ individuals individuals
 #'
-#' @return A single value, the bycatch rate that would lead to the depletion level \code{InitDepl.w}
+#' @return The bycatch rate that would lead to the depletion level \code{InitDepl.w} -- a single value.
 #'
 #' @examples
 #' # Get number of individuals per recruit in terms of mature individuals (\eqn{N0.w})
-#' NPROut <- npr(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, E=0)
+#' NPROut <- npr(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, E = 0)
 #' N0 <- NPROut$npr # mature numbers per recruit
 #' # Get number of individuals per recruit in terms of individuals aged 1+ (\eqn{P0.w})
 #' P0 <- NPROut$P1r # 1+ nums per recruit
@@ -28,11 +28,11 @@
 #' @export
 get_f <- function(f.start = NA, S0.w = NA, S1plus.w = NA, nages.w = NA, K1plus.w = NA, AgeMat.w = NA, InitDepl.w = NA, z.w = NA, lambdaMax.w = NA, N0.w = NA, P0.w = NA){
   # fecundity at unfished equilibrium
-  Fec0 = 1.0/N0.w # Fec0=0.012
+  Fec0 <- 1.0/N0.w
   FecMax <- getfecmax(S1plus = S1plus.w,S0 = S0.w,AgeMat = AgeMat.w,lambdaMax = lambdaMax.w)
-  A <- (FecMax - Fec0) / Fec0 # Pella-Tomlinson resilience parameter, from Punt 1999 (Annex R) - Note: There are two ways to get A, this is the simpler one
+  A <- (FecMax - Fec0) / Fec0 # Pella-Tomlinson resilience parameter, from Punt 1999 (Annex R) - Note: this is the simpler of two ways to get A
 
-  # set limit for uniroot-- don't search too far in the positive direction
+  # set limit for uniroot. Don't search too far in the positive direction
   search.limit <- (1-(1/lambdaMax.w)) * 2.5
 
   logit.start <- logit(f.start)
@@ -47,10 +47,10 @@ get_f <- function(f.start = NA, S0.w = NA, S1plus.w = NA, nages.w = NA, K1plus.w
     f <- inv_logit(lf) # f ~= 0.01
 
     # Get numbers per recruit at f=f
-    NE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = f)$npr #change this later?
-    PE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = f)$P1r #new
+    NE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = f)$npr
+    PE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = f)$P1r
 
-    R0 = 1 # Can do this because this fn is "scale irrelevant" (AEP)
+    R0 <- 1 # Can campute this for one recruit because this function is "scale irrelevant" (AEP)
 
     # Full solution for R.F is in methods
     if ((1-Fec0*NE)/(Fec0*NE*A) > 1){
@@ -69,10 +69,10 @@ get_f <- function(f.start = NA, S0.w = NA, S1plus.w = NA, nages.w = NA, K1plus.w
   zero.cross <- uniroot(f = to.minimize,
                         interval = logit(c(0.00001,search.limit)),
                         tol=1e-7)
-  f<- inv_logit(zero.cross$root)
+  f <- inv_logit(zero.cross$root)
 
   # Check to make sure value of to-minimize is zero
-  to.min.val <- to.minimize(lf = logit(f))
+  # to.min.val <- to.minimize(lf = logit(f))
   #cat("   val of to.minimize (should be 0)",to.min.val)
 
   return(f)

@@ -2,34 +2,35 @@
 % Please edit documentation in R/2_get_rf.R
 \name{get_rf}
 \alias{get_rf}
-\title{Get recruitment at exploitation rate E}
+\title{Get recruitment at bycatch mortality rate E}
 \usage{
 get_rf(E, S0, S1plus, nages, K1plus, AgeMat, z, A, P0, N0)
 }
 \arguments{
-\item{E}{initial exploitation rate (numeric value)}
+\item{E}{initial bycatch mortality rate (numeric value)}
 
 \item{S0}{calf or pup survival (numeric value)}
 
 \item{S1plus}{adult survival  (numeric value)}
 
-\item{nages}{number of age classes, incl plus group age in years}
+\item{nages}{number of age classes-- including plus group age-- in years}
 
 \item{K1plus}{adult carrying capacity (number of individuals)}
 
-\item{AgeMat}{age at maturity (number of years)}
+\item{AgeMat}{age at maturity in years}
 
 \item{z}{degree of compensation, in the app calculated from the value of MNPL defined by the user}
 
-\item{A}{Pella-Tomlinson resilience parameter (Punt 1999; Annex R). A = (FecMax - Fec0) / Fec0 (num)}
+\item{A}{Pella-Tomlinson resilience parameter (see Punt 1999; Annex R).
+A = (FecMax - Fec0) / Fec0 (num)}
 
-\item{P0}{unfished 1+ numbers per recruit, \eqn{tildeP(0)}. Must double-check with AEP.}
+\item{P0}{unfished 1+ numbers per recruit, \eqn{tildeP(0)}}
 
-\item{N0}{unfished mature numbers per recruit, \eqn{tildeN(0)}. Must double-check with AEP.}
+\item{N0}{unfished mature numbers per recruit, \eqn{tildeN(0)}}
 }
 \value{
-recruitment given exploitation rate E - this value is multiplied by the initial abundance \eqn{N_{init}} to get initial nums at age ( a vector)
+recruitment given exploitation rate \emph{E} - this value is multiplied by the initial abundance \eqn{N_{init}} to get initial nums at age ( a vector)
 }
 \description{
-calculates recruitment at exploitation rate E
+calculates recruitment at bycatch mortality rate \emph{E}
 }

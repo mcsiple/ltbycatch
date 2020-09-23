@@ -7,7 +7,9 @@
 get_mnpl(E.start = 0.001, lh.params)
 }
 \arguments{
-\item{lh.params}{}
+\item{E.start}{a starting guess for bycatch mortality rate that will result in MSYR (equivalent mathematically to FMSY for fisheries)}
+
+\item{lh.params}{a list of life history parameters}
 }
 \description{
 Calculate MNPL

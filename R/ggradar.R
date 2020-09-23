@@ -1,84 +1,59 @@
 #' Radar plot
-#' @details I modified the ggradar function slightly to do nice things that I like, like use a custom color palette, including different line types, etc.
-#' @param plot.data
+#' @details I modified the `ggradar()` function slightly to do nice things that I like, like use a custom color palette, including different line types, etc.
 #'
-#' @param font.radar
-#' @param values.radar
-#' @param axis.labels
-#' @param grid.min
-#' @param grid.mid
-#' @param grid.max
-#' @param centre.y
-#' @param plot.extent.x.sf
-#' @param plot.extent.y.sf
-#' @param x.centre.range
-#' @param label.centre.y
-#' @param grid.line.width
-#' @param gridline.min.linetype
-#' @param gridline.mid.linetype
-#' @param gridline.max.linetype
-#' @param gridline.min.colour
-#' @param gridline.mid.colour
-#' @param gridline.max.colour
-#' @param grid.label.size
-#' @param gridline.label.offset
-#' @param label.gridline.min
-#' @param axis.label.offset
-#' @param axis.label.size
-#' @param axis.line.colour
-#' @param group.line.width
-#' @param group.point.size
-#' @param background.circle.colour
-#' @param background.circle.transparency
-#' @param plot.legend
-#' @param legend.title
-#' @param legend.text.size
-#' @param palette.vec
+#' @param plot.data a dataframe with performance measures as columns and management scenarios as rows
+#' @param axis.labels a vector of names for the performance measures
+#' @param grid.label.size a numeric value for grid label size
+#' @param axis.label.size a numeric value for axis label size
+#' @param plot.legend logical; whether or not to plot a legend to the right of the plot
+#' @param legend.text.size numeric value for size of legend text
+#' @param palette.vec a vector of colors to use for the different scenarios (each row = 1 color)
 #' @param manual.levels
 #'
 #' @author Ricardo Bion, modified slightly by Margaret Siple
-#' @details Since this code was originally written, ggradar is now it's own official package. For more information and for the most current version of the function, see Ricardo Bion's \href{https://github.com/ricardo-bion/ggradar/}{GitHub}
+#' @details Since this code was originally written, ggradar has becomes its own standalone package. For more information and for the most current version of the function, see Ricardo Bion's \href{https://github.com/ricardo-bion/ggradar/}{GitHub}
 #'
 #' @export
 
 ggradar <- function(plot.data,
-                    font.radar="Circular Air Light",
-                    values.radar = c("0", "", "1"),
-                    axis.labels=colnames(plot.data)[-1],
-                    grid.min=0,  #10,
-                    grid.mid=0.5,  #50,
-                    grid.max=1,  #100,
-                    centre.y=grid.min - ((1/9)*(grid.max-grid.min)),
-                    plot.extent.x.sf=1,
-                    plot.extent.y.sf=1.2,
-                    x.centre.range=0.02*(grid.max-centre.y),
-                    label.centre.y=FALSE,
-                    grid.line.width=0.5,
-                    gridline.min.linetype="longdash",
-                    gridline.mid.linetype="longdash",
-                    gridline.max.linetype="longdash",
-                    gridline.min.colour="grey",
-                    gridline.mid.colour="#007A87",
-                    gridline.max.colour="grey",
-                    grid.label.size=7,
-                    gridline.label.offset=-0.1*(grid.max-centre.y),
-                    label.gridline.min=TRUE,
-                    axis.label.offset=1.15,
-                    axis.label.size=8,
-                    axis.line.colour="grey",
-                    group.line.width=1.5,
-                    group.point.size=4,
-                    background.circle.colour="#D7D6D1",
-                    background.circle.transparency=0.2,
-                    plot.legend=if (nrow(plot.data)>1) TRUE else FALSE,
-                    legend.title="",
-                    legend.text.size=grid.label.size,
+                    axis.labels = colnames(plot.data)[-1],
+                    grid.label.size = 7,
+                    axis.label.size = 8,
+                    plot.legend = if (nrow(plot.data)>1) TRUE else FALSE,
+                    legend.text.size = grid.label.size,
                     palette.vec = c("#D53E4F", "#FC8D59", "#FEE08B", "#E6F598", "#99D594", "#3288BD"),
                     manual.levels = NA) {
 
   library(ggplot2)
 
+  # settings (originally these were function options; I have hard coded them here)
+  font.radar <- "Circular Air Light"
+  values.radar <- c("0", "", "1")
   plot.data <- as.data.frame(plot.data)
+  grid.min = 0
+  grid.mid = 0.5
+  grid.max = 1
+  centre.y = grid.min - ((1/9)*(grid.max-grid.min))
+  plot.extent.x.sf = 1
+  plot.extent.y.sf = 1.2
+  x.centre.range = 0.02*(grid.max-centre.y)
+  label.centre.y = FALSE
+  grid.line.width = 0.5
+  gridline.min.linetype = "longdash"
+  gridline.mid.linetype = "longdash"
+  gridline.max.linetype = "longdash"
+  gridline.min.colour = "grey"
+  gridline.mid.colour = "#007A87"
+  gridline.max.colour = "grey"
+  gridline.label.offset = -0.1*(grid.max-centre.y)
+  label.gridline.min = TRUE
+  axis.label.offset = 1.15
+  axis.line.colour = "grey"
+  group.line.width = 1.5
+  group.point.size = 4
+  background.circle.colour = "#D7D6D1"
+  background.circle.transparency = 0.2
+  legend.title = ""
 
   plot.data[,1] <- as.factor(as.character(plot.data[,1]))
   if(all(!is.na(manual.levels))){plot.data[,1] <- factor(plot.data[,1],levels = manual.levels)}

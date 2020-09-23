@@ -14,14 +14,14 @@
 #' @param ConstantF vector (length = \code{nyears}) rate of bycatch each year
 #' @param z The degree of compensation.  The default value is \code{z = 2.39}.
 #' @param nyears Number of years to project
-#' @param nages "Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy.
+#' @param nages "Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy
 #' @param lambdaMax Maximum steady rate of increase (population growth rate)
 #'
 #' @return A list containing a matrix \code{N} of numbers at age (dimensions \code{nyears} (rows) x \code{nages} (columns)) and one vector \code{TotalPop} (a vector of length \code{nyears}), containing the number of age 1+ individuals in the population.
 
 # Note, nages = PlusGroupAge, and PlusGroupAge can = AgeMat+2 without losing accuracy (per AEP 11/30/18)
 #'
-#' @example
+#' @examples
 #' # Generate a time series of abundance for a bowhead whale
 #' Dynamics(S0 = 0.944,S1plus = 0.99,K1plus = 9000,AgeMat = 17,InitDepl = 0.6,ConstantCatch = NA,ConstantF = rep(0.01,times=100),z = 2.39,nyears = 100,nages = 25,lambdaMax = 1.04)
 #' print(test)

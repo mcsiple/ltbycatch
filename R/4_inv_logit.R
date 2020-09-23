@@ -2,7 +2,7 @@
 #'
 #' @description The inverse logit of x
 #' @param x A number
-#' @return the inverse logit of x. Returns NA if is.na(x)
+#' @return the inverse logit of x.
 #' @examples
 #' inv_logit(0)
 #' inv_logit(1)

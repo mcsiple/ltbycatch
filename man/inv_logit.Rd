@@ -10,7 +10,7 @@ inv_logit(x)
 \item{x}{A number}
 }
 \value{
-the inverse logit of x. Returns NA if is.na(x)
+the inverse logit of x.
 }
 \description{
 The inverse logit of x

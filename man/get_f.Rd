@@ -2,7 +2,7 @@
 % Please edit documentation in R/5_get_f.R
 \name{get_f}
 \alias{get_f}
-\title{Get bycatch mortality rate E that results in a specified depletion}
+\title{Get bycatch mortality rate given depletion}
 \usage{
 get_f(
   f.start = NA,
@@ -19,9 +19,9 @@ get_f(
 )
 }
 \arguments{
-\item{f.start}{an initial guess for the bycatch rate E. The default value is E = 0.5}
+\item{f.start}{an initial guess for the bycatch mortality rate E. The default value is E = 0.5}
 
-\item{S0.w}{Calf or pup survival, a numeric value between 0 and 1. (Note: the 'w' suffix indicates that \eqn{z} is in the wrapper fn, and is used inside the function by optim())}
+\item{S0.w}{Calf or pup survival, a numeric value between 0 and 1. (Note: the 'w' suffix indicates that \eqn{z} is in the wrapper function, and is used inside the function by \code{optim})}
 
 \item{S1plus.w}{survival for animals age 1 year and older (a numeric value between 0 and 1)}
 
@@ -42,14 +42,14 @@ get_f(
 \item{P0.w}{numbers per recruit in terms of aged 1+ individuals individuals}
 }
 \value{
-A single value, the bycatch rate that would lead to the depletion level \code{InitDepl.w}
+The bycatch rate that would lead to the depletion level \code{InitDepl.w} -- a single value.
 }
 \description{
-This function solves for the bycatch rate \eqn{E} that gives depletion level \code{InitDepl.w}. It is used within the \code{Projections()} function to get the stable age distribution at which to start the projections.
+This function solves for the bycatch mortality rate \eqn{E} that gives depletion level \code{InitDepl.w}. It is used within the \code{Projections()} function to get the stable age distribution at which to start the projections.
 }
 \examples{
 # Get number of individuals per recruit in terms of mature individuals (\eqn{N0.w})
-NPROut <- npr(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, f=0)
+NPROut <- npr(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, E = 0)
 N0 <- NPROut$npr # mature numbers per recruit
 # Get number of individuals per recruit in terms of individuals aged 1+ (\eqn{P0.w})
 P0 <- NPROut$P1r # 1+ nums per recruit

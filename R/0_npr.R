@@ -6,9 +6,9 @@
 #' @param S1plus adult survival, a numeric value between 0 and 1
 #' @param nages plus group age in years
 #' @param AgeMat age at maturity in years
-#' @param E bycatch rate (numeric value before 0 and 1)
+#' @param E bycatch mortality rate
 #'
-#' @return A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
+#' @return A list of numbers per recruit (\code{npr}), 1+ numbers per recruit (\code{P1r}), and numbers at age per recruit (\code{nvec})
 #'
 #' @examples
 #' (unpr <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,E=0))     # unfished nums per recruit

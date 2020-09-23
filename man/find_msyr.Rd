@@ -7,9 +7,9 @@
 find_msyr(E.start, lh.params, fmax, N0)
 }
 \arguments{
-\item{E.start}{a starting guess for exploitation rate that will result in FMSY (num)}
+\item{E.start}{a starting guess for bycatch mortality rate that will result in FMSY (numeric value)}
 
-\item{lh.params}{a list of life history parameters (list)}
+\item{lh.params}{a list of life history parameters (S0, S1plus, nages, AgeMat, lmabdaMax, K1plus, and z)}
 
 \item{fmax}{Max theoretical fecundity (num)}
 

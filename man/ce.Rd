@@ -21,7 +21,7 @@ ce(S0, S1plus, nages, K1plus, AgeMat, z, lambdaMax, E, A, P0, N0)
 
 \item{lambdaMax}{maximum steady rate of increase (population growth rate)}
 
-\item{E}{exploitation rate}
+\item{E}{bycatch mortality rate}
 
 \item{A}{the Pella-Tomlinson resilience parameter ((fmax - f0)/f0)}
 

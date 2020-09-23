@@ -1,7 +1,7 @@
 #' Calculate MNPL
 #'
-#' @param E.start a starting guess for exploitation rate that will result in FMSY
-#' @param lh.params list of life history parameters
+#' @param E.start a starting guess for bycatch mortality rate that will result in MSYR (equivalent mathematically to FMSY for fisheries)
+#' @param lh.params a list of life history parameters
 #'
 #' @export
 get_mnpl <- function(E.start = 0.001, lh.params){

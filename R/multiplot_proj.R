@@ -1,26 +1,26 @@
-# Separate function for multiple depletion levels
+# Plot projections for multiple depletion levels
 
 #' multiplot.proj
-#' @description plots outputs from several projections that result from a Projections() call, with multiple depletion levels.
+#' @description plots outputs from several projections that result from \code{Projections()}, with multiple depletion levels.
 #'
-#' @param high.d1 a list containing output from Projections() (including a matrix of simulation trajectories) - this corresponds to the highest bycatch level (thus "high") and the depletion level (\code{d1} indicates the lowest starting depletion level)
-#' @param years.plot How many years to plot
-#' @param spaghetti Either FALSE or a number, where the number is how many simulations to show from the same scenario
+#' @param years.plot number of years to plot
+#' @param spaghetti either FALSE or a number, where the number is how many simulations to show from the same scenario
 #' @param years.to.plot How many years to plot on the x axis
-#' @param K1plus The carrying capacity in terms of the 1+ component of the population
-#' @param InitDepls A vector of initial depletion levels; if the user has selected "show multiple depletion levels" in the app, this vector is automatically the depletion they entered (d), 75 percent of that value ("low" depletion) and 125 percent of that value ("high depletion")
-#' @param color.palette A three-element vector giving the color values for low, medium, and high bycatch
-#' @param med.d1
-#' @param low.d1
-#' @param high.d2
-#' @param med.d2
-#' @param low.d2
-#' @param high.d3
-#' @param med.d3
-#' @param low.d3
-#' @param ylims
+#' @param K1plus carrying capacity in terms of the 1+ component of the population
+#' @param InitDepls a vector of initial depletion levels; if the user has selected "show multiple depletion levels" in the app, this vector is automatically the depletion they entered, 75 percent of that value ("low" depletion) and 125 percent of that value ("high depletion")
+#' @param color.palette A vector of length 3 giving the color values for low, medium, and high bycatch mortality or bycatch mortality rate
+#' @param high.d1 a list containing output from \code{Projections() (including a matrix of simulation trajectories) - this corresponds to the highest bycatch level (thus "high") and the depletion level (\code{d1} indicates the lowest starting depletion level)
+#' @param med.d1 a list containing the middle bycatch value and lowest starting depletion
+#' @param low.d1 a list containing the lowest bycatch value and lowest starting depletion
+#' @param high.d2 a list containing the highest bycatch value and middle starting depletion
+#' @param med.d2 a list containing the middle bycatch value and middle starting depletion
+#' @param low.d2 a list containing the lowest bycatch value and middle starting depletion
+#' @param high.d3 a list containing the highest bycatch value and highest starting depletion
+#' @param med.d3 a list containing the middle bycatch value and highest starting depletion
+#' @param low.d3 a list containing the lowest bycatch value and highest starting depletion
+#' @param ylims plot y limits
 #'
-#' @return A plot of 50% and 90% confidence intervals of population projections (if \code{spaghetti ==FALSE}) or a spaghetti plot (if \code{spaghetti ==TRUE}),  from \code{Projections()}.
+#' @return A plot of 50% and 90% confidence intervals of population projections if \code{spaghetti == FALSE} or a spaghetti plot with n individual projections if \code{spaghetti == n },  from \code{Projections()}.
 #'
 #' @export
 multiplot_proj <- function(high.d1=testing.list[[1]][3][[1]]$trajectories, # d1 is lowest depl, high is highest bycatch rate

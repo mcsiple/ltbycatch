@@ -1,10 +1,10 @@
 #' Logit transform
-#' @description Take the logit transform of a number p
+#' @description Take the logit transform of a value \emph{p}
 #'
-#' @param p Number to logit-transform
+#' @param p Value to logit-transform
 #'
-#' @example
-#' logit(p = 0.01)
+#' @examples
+#' x <- logit(p = 0.01)
 #'
 #' @export
 logit <- function(p){

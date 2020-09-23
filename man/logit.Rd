@@ -7,8 +7,12 @@
 logit(p)
 }
 \arguments{
-\item{p}{Number to logit-transform}
+\item{p}{Value to logit-transform}
 }
 \description{
-Take the logit transform of a number p
+Take the logit transform of a value \emph{p}
+}
+\examples{
+x <- logit(p = 0.01)
+
 }

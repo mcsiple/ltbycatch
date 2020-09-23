@@ -37,7 +37,7 @@ dynamics(
 
 \item{nyears}{Number of years to project}
 
-\item{nages}{"Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy.}
+\item{nages}{"Maximum" age, treated as the plus group age. The plus group age can be set equal to the age at maturity +2 years without losing accuracy}
 
 \item{lambdaMax}{Maximum steady rate of increase (population growth rate)}
 }
@@ -49,4 +49,10 @@ This function generates one trajectory for a marine mammal population, starting 
 }
 \details{
 The population model is a single-sex age-structured model in which the number of calves or pups born each year is density dependent, with the extent of density dependence a function of the number of mature adults \eqn{\tildeN}, the fecundity (pregnancy rate) at pre-exploitation equilibrium \eqn{f_0}, the maximum theoretical fecundity rate fmax, the degree of compensation \eqn{z}, and the abundance of individuals aged 1+ \eqn{N_{y+1}^{1+}} relative to carrying capacity \eqn{K^{1+}}. This function can be used alone but is intended to be used with \code{Projections()} to generate multiple simulations.
+}
+\examples{
+# Generate a time series of abundance for a bowhead whale
+Dynamics(S0 = 0.944,S1plus = 0.99,K1plus = 9000,AgeMat = 17,InitDepl = 0.6,ConstantCatch = NA,ConstantF = rep(0.01,times=100),z = 2.39,nyears = 100,nages = 25,lambdaMax = 1.04)
+print(test)
+
 }
