@@ -9,7 +9,7 @@ get_dc <- function(logit.E,S0=S0.w, S1plus=S1plus.w, nages=nages.w, AgeMat=AgeMa
   exploitation.rate <- inv.logit(logit.E)
   h <- 0.000001
 
-  NPROut <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=0)
+  NPROut <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = 0)
   N0 <- NPROut$npr
   P0 <- NPROut$P1r
   Fec0 <- 1.0/N0

@@ -63,7 +63,7 @@ dynamics <- function(S0, S1plus, K1plus, AgeMat, InitDepl, ConstantCatch=NA, Con
 
     # Initial conditions, non-equilibrium
   } else{             # pop starts at InitDepl*K
-    NPROut <- NPR(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=0)
+    NPROut <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = 0)
     N0 <- NPROut$npr # mature nums per recruit
     P0 <- NPROut$P1r # 1+ nums per recruit
 

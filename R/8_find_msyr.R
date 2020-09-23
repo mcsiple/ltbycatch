@@ -2,8 +2,8 @@
 #'
 #' @description one of the functions needed for getting MNPL. MSYR is the same as FMSY.
 #'
-#' @param E.start a starting guess for exploitation rate that will result in FMSY (num)
-#' @param lh.params a list of life history parameters (list)
+#' @param E.start a starting guess for exploitation rate that will result in FMSY (numeric value)
+#' @param lh.params a list of life history parameters (S0, S1plus, nages, AgeMat, lmabdaMax, K1plus, and z)
 #' @param unpr unfished numbers per recruit (num)
 #' @param fmax Max theoretical fecundity (num)
 #'
@@ -18,7 +18,7 @@ find_msyr <- function(E.start, lh.params, fmax, N0){
   K1plus.w = lh.params$K1plus
   z.w = lh.params$z
 
-  unex <- npr(S0 = S0.w,S1plus = S1plus.w,nages = nages.w, AgeMat = AgeMat.w, f=0)
+  unex <- npr(S0 = S0.w,S1plus = S1plus.w,nages = nages.w, AgeMat = AgeMat.w, E = 0)
   #N0 <- unex$npr
   P0 <- unex$P1r
 
@@ -50,7 +50,7 @@ find_msyr <- function(E.start, lh.params, fmax, N0){
             K1plus = K1plus.w,
             AgeMat = AgeMat.w,
             z = z.w,
-            lambdaMax =lambdaMax.w,
+            lambdaMax = lambdaMax.w,
             E = fmsy,
             A = A,P0 = P0,N0=N0)
   if (MSY == 0) cat("Warning FMSY is not correct","\n")

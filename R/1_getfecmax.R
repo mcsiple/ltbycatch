@@ -8,7 +8,7 @@
 #' @param AgeMat age at maturity (in years)
 #' @return a single numeric value for maximum theoretical fecundity.
 #'
-#' @example
+#' @examples
 #' x <- getfecmax(lambdaMax = 1.04, S0 = 0.944, S1plus = 0.99, AgeMat = 17)
 #' unpr <- npr(S0 = 0.944, S1plus = 0.99, AgeMat = 17, nages = 10000, f = 0)
 #' print(1/unpr$npr)

@@ -1,21 +1,21 @@
-#' Get numbers per recruit
+#' Calculate numbers per recruit
 #'
-#' @description Calculate nums per recruit at exploitation rate f
+#' @description Calculate nums per recruit at exploitation rate \emph{f}.
 #'
 #' @param S0 calf survival, a numeric value between 0 and 1
 #' @param S1plus adult survival, a numeric value between 0 and 1
 #' @param nages plus group age in years
 #' @param AgeMat age at maturity in years
-#' @param f bycatch rate (numeric value before 0 and 1)
+#' @param E bycatch rate (numeric value before 0 and 1)
 #'
 #' @return A list of numbers per recruit (npr), 1+ numbers per recruit (P1r), and numbers at age per recruit (nvec)
 #'
 #' @examples
-#' (unpr <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0))     # unfished nums per recruit
-#' (nprf <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,f=0.8))   # nums per recruit at F
+#' (unpr <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,E=0))     # unfished nums per recruit
+#' (nprf <- npr(S0 = 0.9,S1plus = 0.9,AgeMat=11, nages = 13,E=0.8))   # nums per recruit at bycatch rate E
 #'
 #' @export
-npr <- function(S0, S1plus, nages, AgeMat, f=0){
+npr <- function(S0, S1plus, nages, AgeMat, E=0){
   AgePart <- AgeMat+1 # Age at first parturition
 
   N.vec <- vector(length = nages+1) # Ages 0 thru nages --> vector 1:(nages+1)
@@ -23,7 +23,7 @@ npr <- function(S0, S1plus, nages, AgeMat, f=0){
   N.vec[2] <- 1 * S0
 
   # AEP
-  OnePlusSurv <-(S1plus*(1-f))
+  OnePlusSurv <-(S1plus*(1-E))
 
   for(a in 3:(nages)){
     N.vec[a] <- S0 * ( OnePlusSurv^(a-2) ) # quadruple checked

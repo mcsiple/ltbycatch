@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' # Get number of individuals per recruit in terms of mature individuals (\eqn{N0.w})
-#' NPROut <- npr(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, f=0)
+#' NPROut <- npr(S0 = .5,S1plus = .944,nages = 25, AgeMat = 18, E=0)
 #' N0 <- NPROut$npr # mature numbers per recruit
 #' # Get number of individuals per recruit in terms of individuals aged 1+ (\eqn{P0.w})
 #' P0 <- NPROut$P1r # 1+ nums per recruit
@@ -47,8 +47,8 @@ get_f <- function(f.start = NA, S0.w = NA, S1plus.w = NA, nages.w = NA, K1plus.w
     f <- inv_logit(lf) # f ~= 0.01
 
     # Get numbers per recruit at f=f
-    NE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=f)$npr #change this later?
-    PE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=f)$P1r #new
+    NE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = f)$npr #change this later?
+    PE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, E = f)$P1r #new
 
     R0 = 1 # Can do this because this fn is "scale irrelevant" (AEP)
 
