@@ -3,11 +3,11 @@
 #' @param highval The high end of the user-defined range of bycatch values
 #' @param medval The middle of the user-defined bycatch range
 #' @param lowval The low end of the user-defined range
-#' @param cv CV of bycatch
-#' @param set_size Base size for ggplot
+#' @param cv CV of bycatch mortality or bycatch mortality rate
+#' @param set_size base size to pass to \code{ggplot}
 #' @param print.tiff \code{logical} whether or not to write a tiff file to \code{outputdir}
-#' @param color.palette A vector of colors, with position \code{1} being the color that represents the lowest bycatch level
-#' @param outputdir If \code{print.tiff=TRUE}, the directory to place tiff file of plot
+#' @param color.palette A vector of colors to represent bycatch levels, from low to high end of range
+#' @param outputdir If \code{print.tiff = TRUE}, the directory to place tiff file of plot
 #' @return A \code{ggplot2} grob showing the distributions of bycatch values based on what the user entered.
 #'
 #' @export
