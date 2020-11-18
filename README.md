@@ -1,13 +1,24 @@
-# Package ltbycatch
+# ltbycatch: Projecting long-term marine mammal abundance with bycatch
 master: <a href="https://badge.fury.io/gh/mcsiple%2Fltbycatch"><img src="https://badge.fury.io/gh/mcsiple%2Fltbycatch.svg" alt="GitHub version" height="18"></a>
 
 ltbycatch is an R package that generates marine mammal population projections based on starting abundance, life history, and bycatch rates, based on the BALEEN II population dynamics model.
 
 ## Authors
 Margaret Siple  
-André Punt
-Tessa Francis
-The Ocean Modeling Forum Marine Mammal Bycatch Working Group
+André Punt  
+Tessa Francis  
+Phil S. Hammond  
+Dennis Heinemann  
+Kristy J. Long  
+Jeff Moore  
+Maritza Sepulveda  
+Randall R. Reeves  
+Guðjón Már Sigurðsson  
+Gísli Víkingsson  
+Paul R. Wade  
+Rob Williams  
+Alexandre N. Zerbini  
+
 
 ## Contents
 -   [Details](#details)
@@ -40,3 +51,5 @@ The functions in this package can also be accessed through the Shiny app for thi
 ## References
 Punt, A. E. 1999. Annex R: A full description of the standard Baleen II model and some variants thereof. Division of Marine Research, CSIRO Marine Laboratories, Hobart, Australia. Available from https://duwamish.lib.washington.edu/uwnetid/illiad.dll?Action=10&Form=75&Value=1651729 (accessed August 7, 2018).
 
+## Citation (tbd)
+Margaret C. Siple, André E. Punt, Tessa B. Francis, Phil S. Hammond, Dennis Heinemann, Kristy J. Long, Jeff Moore, Maritza Sepulveda, Randall R. Reeves, Guðjón Már Sigurðsson, Gísli Víkingsson, Paul R. Wade, Rob Williams, and Alexandre N. Zerbini (t.b.d.). ltbycatch: Projecting long-term marine mammal abundance with bycatch. R package version 1.0.0. 
