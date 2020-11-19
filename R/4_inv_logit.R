@@ -6,9 +6,8 @@
 #' @examples
 #' inv_logit(0)
 #' inv_logit(1)
-#'
 #' @export
-inv_logit <- function(x){
-  rev <- exp(x)/(1+exp(x))
+inv_logit <- function(x) {
+  rev <- exp(x) / (1 + exp(x))
   return(rev)
 }

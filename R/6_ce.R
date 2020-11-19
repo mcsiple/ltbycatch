@@ -16,24 +16,28 @@
 #' @return a single value of normalized yield for exploitation rate E
 #'
 #' @export
-ce <- function(S0, S1plus, nages, K1plus, AgeMat, z, lambdaMax, E, A, P0, N0){
-  npr1plus <- npr(S0 = S0,
-                  S1plus = S1plus,
-                  nages = nages,
-                  AgeMat = AgeMat,
-                  E = E)$P1r # 1+ nums per recruit @ E, written as P[tilde](E)
-  recatF <- get_rf(E = E,
-                  S0 = S0,
-                  S1plus = S1plus,
-                  nages = nages,
-                  K1plus = K1plus,
-                  AgeMat = AgeMat,
-                  z = z,
-                  A = A,
-                  P0 = P0,
-                  N0 = N0) # recruitment at E
-  recat0 <- 1  # recruitment at E = 0 (no bycatch)
-  rel_rec <- recatF/recat0 # normalized recruitment at E, known as B(E)
+ce <- function(S0, S1plus, nages, K1plus, AgeMat, z, lambdaMax, E, A, P0, N0) {
+  npr1plus <- npr(
+    S0 = S0,
+    S1plus = S1plus,
+    nages = nages,
+    AgeMat = AgeMat,
+    E = E
+  )$P1r # 1+ nums per recruit @ E, written as P[tilde](E)
+  recatF <- get_rf(
+    E = E,
+    S0 = S0,
+    S1plus = S1plus,
+    nages = nages,
+    K1plus = K1plus,
+    AgeMat = AgeMat,
+    z = z,
+    A = A,
+    P0 = P0,
+    N0 = N0
+  ) # recruitment at E
+  recat0 <- 1 # recruitment at E = 0 (no bycatch)
+  rel_rec <- recatF / recat0 # normalized recruitment at E, known as B(E)
   cpr1plus <- E * rel_rec * npr1plus # 1+ catch-per-recruit at bycatch mortality rate E, AKA normalized sustainable yield
   return(cpr1plus)
 }

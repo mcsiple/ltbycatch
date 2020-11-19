@@ -10,18 +10,21 @@
 #' @return a vector of abundance relative to K or zero-exploitation where nrows=length of years.vec (10 years after, 20 years, etc.) and ncol=number of simulations.
 #'
 #' @export
-abund_rel <- function(traj, zero.traj, K=NA, years.vec=c(10,20,50),fulldist = TRUE){
+abund_rel <- function(traj, zero.traj, K = NA, years.vec = c(10, 20, 50), fulldist = TRUE) {
   nsims <- nrow(traj)
-  rel.abund <- matrix(data = NA,nrow = length(years.vec),ncol = nsims)
-  if(!is.na(K)){
-    list.outputs <- lapply(X = years.vec,FUN = function(x) traj[,x] / K)
-  }else{
-    list.outputs <- lapply(X = years.vec,FUN = function(x) traj[,x] / zero.traj[,x])
+  rel.abund <- matrix(data = NA, nrow = length(years.vec), ncol = nsims)
+  if (!is.na(K)) {
+    list.outputs <- lapply(X = years.vec, FUN = function(x) traj[, x] / K)
+  } else {
+    list.outputs <- lapply(X = years.vec, FUN = function(x) traj[, x] / zero.traj[, x])
   }
-  names(list.outputs) <- paste("YrPost",years.vec,sep="")
+  names(list.outputs) <- paste("YrPost", years.vec, sep = "")
 
-  if(fulldist)return(list.outputs)else{
-    final <- lapply(X = list.outputs,FUN=median)
-    final <- round(as.numeric(final), digits=2)
-    return(final)}
+  if (fulldist) {
+    return(list.outputs)
+  } else {
+    final <- lapply(X = list.outputs, FUN = median)
+    final <- round(as.numeric(final), digits = 2)
+    return(final)
+  }
 }

@@ -12,9 +12,9 @@
 #' @examples
 #' x <- getfecmax(lambdaMax = 1.04, S0 = 0.944, S1plus = 0.99, AgeMat = 17)
 #' unpr <- npr(S0 = 0.944, S1plus = 0.99, AgeMat = 17, nages = 10000, E = 0)
-#' print(1/unpr$npr)
+#' print(1 / unpr$npr)
 #' @export
-getfecmax <- function(S0,lambdaMax,S1plus,AgeMat){
-  fmax <- (lambdaMax^(AgeMat)-(S1plus*(lambdaMax^(AgeMat-1)))) / (S0*S1plus^(AgeMat-1))
+getfecmax <- function(S0, lambdaMax, S1plus, AgeMat) {
+  fmax <- (lambdaMax^(AgeMat) - (S1plus * (lambdaMax^(AgeMat - 1)))) / (S0 * S1plus^(AgeMat - 1))
   return(fmax)
 }

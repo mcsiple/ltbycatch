@@ -17,21 +17,21 @@
 #' @return recruitment given exploitation rate \emph{E} - this value is multiplied by the initial abundance \eqn{N_{init}} to get initial nums at age ( a vector)
 #'
 #' @export
-get_rf <- function(E, S0, S1plus, nages,K1plus, AgeMat, z, A, P0, N0){
-
-  NE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=E)$npr
-  PE <- npr(S0 = S0,S1plus = S1plus,nages = nages, AgeMat = AgeMat, f=E)$P1r
+get_rf <- function(E, S0, S1plus, nages, K1plus, AgeMat, z, A, P0, N0) {
+  NE <- npr(S0 = S0, S1plus = S1plus, nages = nages, AgeMat = AgeMat, f = E)$npr
+  PE <- npr(S0 = S0, S1plus = S1plus, nages = nages, AgeMat = AgeMat, f = E)$P1r
 
   # More general version ('actual' R0 = K1plus/P1r)
   R0 <- 1
 
   # Fecundity at unfished equilibrium
-  Fec0 = 1.0/N0
+  Fec0 <- 1.0 / N0
 
-  if ((1-Fec0*NE)/(Fec0*NE*A) > 1)
+  if ((1 - Fec0 * NE) / (Fec0 * NE * A) > 1) {
     R.F <- 0
-  else
-    R.F <- ( 1 - (1-Fec0*NE)/(Fec0*NE*A))^(1/z) * ((R0*P0)/PE)
+  } else {
+    R.F <- (1 - (1 - Fec0 * NE) / (Fec0 * NE * A))^(1 / z) * ((R0 * P0) / PE)
+  }
 
   return(R.F)
 }

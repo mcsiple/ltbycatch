@@ -5,9 +5,8 @@
 #'
 #' @examples
 #' x <- logit(p = 0.01)
-#'
 #' @export
-logit <- function(p){
-  r <- log(p/(1 - p))
+logit <- function(p) {
+  r <- log(p / (1 - p))
   return(r)
 }
