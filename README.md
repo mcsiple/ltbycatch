@@ -44,7 +44,7 @@ install_github("mcsiple/ltbycatch")
 We would like this package to be sustainable in the long term and welcome contributions. If you encounter a bug, please leave a note on the Issues page. You can also leave comments there about additional functionality. If you are interested in contributing, we direct you to the R package [contribution advice](http://r-pkgs.had.co.nz/git.html) from Hadley Wickham.
 
 ## Accessing the mmBIET Shiny app
-The functions in this package can also be accessed through the Shiny app for this project, which is located online [here](https://msiple.shinyapps.io/mammaltool/). The app provides an easy way to explore outcomes. 
+The functions in this package can also be accessed through the Shiny app for this project, which is located online [here](https://msiple.shinyapps.io/mammaltool/). The app provides an easy way to explore outcomes and print out a report with inputs and outputs. 
 
 <img src="https://github.com/mcsiple/ltbycatch/blob/master/docs/screenshot1.png" alt="screenshot1" width="400">
 
