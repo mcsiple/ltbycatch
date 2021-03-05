@@ -23,7 +23,7 @@ ggradar <- function(plot.data,
                     legend.text.size = grid.label.size,
                     palette.vec = c("#D53E4F", "#FC8D59", "#FEE08B", "#E6F598", "#99D594", "#3288BD"),
                     manual.levels = NA) {
-  library(ggplot2)
+  #library(ggplot2)
 
   # settings (originally these were function options; I have hard coded them here)
   font.radar <- "Circular Air Light"
